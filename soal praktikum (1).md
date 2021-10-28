@@ -35,7 +35,6 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme 
 
    (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
-   * #### Langkah Pengerjaan Soal Praktikum
     a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
 
 
@@ -66,14 +65,14 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    sudo lxc-start -n ubuntu_landing
    lxc-attach -n ubuntu_landing
    ```
-   ![s13](assets/s13.PNG)
+   ![s13](assets/s13.png)
    e. set static IP
    ```bash
    nano /etc/network/interfaces
    ```
    
    Ganti IP address menjadi 10.0.3.103 sesuai konsep baru topologi jaringan untuk ubuntu_landing
-   ![s14](assets/s14.PNG)
+   ![s14](assets/s14.png)
 
    f. Lakukan restart setelah selesai mengubah IP apakah IP yang tadinya 102 sudah menjadi 103, jika belum maka lakukan perintah shutdown now, kemudian start kembali ubuntu landing dan masuk ke attach container dan cek ip kembali
 
@@ -90,7 +89,6 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 2. Install lxc debian 9 with the name debian_php5.6 
   
    (Install lxc debian 9 dengan nama debian_php5.6)
-   * #### Langkah Pengerjaan Soal Praktikum
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
    ![s21](assets/s21.png)
@@ -116,13 +114,11 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
 
    (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   * #### Langkah Pengerjaan Soal Praktikum
    1. 
 
 4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
 
    (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   * #### Langkah Pengerjaan Soal Praktikum
    1. 
 
 5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
