@@ -33,16 +33,16 @@ Karena hal ini, mereka berdiskusi dengan tim programmer dan menghasilkan suatu k
 Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme** 
-(Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
-     a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+
+     (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
+     
+    a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
 
 
    ```bash
    sudo lxc-ls -f
    ```
- 
-     b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
-   
+    b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
    ```bash
    lxc-stop ubuntu_php5.6
    lxc-ls -f
@@ -62,7 +62,6 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    **ubuntu_landing**
 
    d. start ubuntu_landing dan masuk ke attach container pada lxc
-   
    ```bash
    sudo lxc-start -n ubuntu_landing
    lxc-attach -n ubuntu_landing
@@ -70,7 +69,6 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s13](assets/s13.png)
    
    e. set static IP
-   
    ```bash
    nano /etc/network/interfaces
    ```
@@ -97,42 +95,34 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
    ![s21](assets/s21.png)
-   
    a. mengganti *sources list* ubuntu
    
    ![s22](assets/s22.png)
    
    b. dengan memasukkan directory debian 9
-   
    deb http://archive.debian.org/debian-non-US/ main contrib non-free
    deb-src http://archive.debian.org/debian-non-US/ main contrib non-free
 
    ![s23](assets/s23.png)
 
    c. download lxc debian dan buat lxc nama-nya menjadi debian_php5.6
-   
    ```bash
    sudo lxc-create -n debian_php5.6 -t download -- --dist debian --release stretch --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
    ```      
-   
    ![s24](assets/s24.png)
    ![s25](assets/s25.png)
 
    d. jika sudah install maka lihat info status debian_5.6
-   
    ```bash
    sudo lxc-info -n debian_php5.6
    ```
-   
    Jika kondisi stopped maka start dengan cara
-   
    ```bash
    lxc-start -n debian_php5.6
    ```
    ![s26](assets/s26.png)
  
    lakukan update dan upgrade
-   
    ```bash
    sudo apt update; sudo apt upgrade -y
    ```
@@ -156,19 +146,15 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s31](assets/s31.png)
 
    b. set static IP
-   
    ```bash
    apt install nano net-tools curl
    ```
    ![s32](assets/s32.png)
-   
    c. setting ip address menjadi 10.0.3.102
-   
    ```bash
    nano /etc/network/interfaces
    ```
    ![s33](assets/s33.png)
-   
    d. lakukan perintah shutdown agar ip lebih cepat terdeteksi setelah diganti menjadi 102, kemudian start kembali dan masuk ke attach container, kemudian ifconfig
 
    ```bash
@@ -181,16 +167,16 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information** 
   
-     (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
+(setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
   
   a. Exit debian_php5.6 and start ubuntu landing. Go to sites-available and edit lxc_php5.6.dev
-  
-    ```
+
+   ```bash
     sudo lxc-start -n ubuntu_landing
     sudo lxc-attach -n ubuntu_landing
     cd ../sites-available
     nano lxc_php5.6.dev
-    ```
+   ```
    ![s51](assets/s51.png)
 
    b. Edit server name di lxc_php5.6.dev 
@@ -199,12 +185,12 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
    c. Go to directory sites-enabled, test nginx and reload nginx
     
-    ```
+   ```bash
     cd ../sites-enabled
     ls -la
     nginx -t
     nginx -s reload
-    ```
+   ```
    ![s53](assets/s53.png)
   
    d. Setting hosts directory /etc/hosts 
@@ -213,11 +199,11 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
    e. Go to directory html and check 
     
-    ```
+   ```bash
     cd /var/www/html
     ls
     cd /var/www/html/lxc_php5.6/
-    ```
+   ```
    ![s55](assets/s55.png)
 
    f. Edit index.html 'Halaman ini dari lxc ubuntu_landing'
@@ -226,9 +212,9 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
    g. Check (http://lxc_landing.dev) pada localhost lxc ubuntu_landing menggunakan curl
     
-    ```
+   ```bash
     curl -i http://lxc_landing.dev
-    ```
+   ```
     
    ![s58](assets/s58.png)
 
@@ -238,118 +224,115 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
    a. Exit from directory lxc ubuntu_landing
    
-    ```
+   ```bash
     exit
-    ```
-    
+   ```
    ![s61](assets/s61.png)
    
    b. Stop and check status ubuntu_landing
    
-    ```
+   ```bash
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
-    ```
+   ``` 
+   ![s62](assets/s62.png)
     
-    ![s62](assets/s62.png)
+   c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
     
-    c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
-    
-    ```
+   ```bash
     cd /vsr/lib/lxc
     ls
     cd ubuntu_landing
     ls
     nano config
-    ```
-    
+   ``` 
    ![s63](assets/s63.png)
    ![s64](assets/s64.png)
    
    d. Autostart 1
    
-    ```
+   ```bash
     lxc.start.auto = 1
-    ```
+   ```
     
    ![s65](assets/s65.png)
    
    e. Exit and check
    
-    ```
+   ```bash
     exit
     sudo lxc-ls -f
-    ```
+   ```
     
    ![s66](assets/s66.png)
 
 **6. Setup nginx on vm.local to set proxy_pass where :**
 
-     (setup nginx pada vm.local untuk mengatur proxy_pass dimana :)
+(setup nginx pada vm.local untuk mengatur proxy_pass dimana :)
    
    **a. Setting hosts**
    
-    ```
+   ```bash
     sudo nano /etc/hosts
-    ```
+   ```
     
    ![s71](assets/s71.png)
    ![s72](assets/s72.png)
    
   **b. Go in directory sites-available and vm.local**
   
-    ```
+   ```bash
     cd /etc/nginx/sites-available
     ls
     sudo nano vm.local
-    ```
+   ```
     
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
     - accessing http://vm.local will redirect to http://lxc_landing.dev :
     
-    ```
+   ```bash
     location / {
         rewrite /?(.*)$ /$1 break;
         proxy_pass http://lxc_landing.dev;
     }
-    ```
+   ```
 
     - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
     
-    ```
+   ```bash
     location /blog {
         rewrite /blog/?(.*)$ /$1 break;
         proxy_pass http://lxc_php7.dev
     }
-    ```
+   ```
   
     - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
     
-    ```
+   ```bash
     location /app {
         rewrite /app/?(.*)$ /$1 break;
         proxy_pass http://lxc_php5.dev;
     }
-    ```
+   ```
    
    **c. Go in sites-enabled reset nginx**
    
-    ```
+   ```bash
     cd ../sites-enabled
     ls -la
     sudo nginx -t
     sudo nginx -s reload
-    ```
+   ```
     
     ![s76](assets/s76.png)
 
 **7. Access all three urls**
 
-     (akses 3 url)
+(akses 3 url)
 
    a. Test and check curl -i
-   ```
+   ```bash
    curl -i http://vm.local/
    curl -i http://vm.local/app
    curl -i http://vm.local/blog
