@@ -34,15 +34,15 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme** 
 
-     (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
+(Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
      
     a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
-
 
    ```bash
    sudo lxc-ls -f
    ```
     b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
+   
    ```bash
    lxc-stop ubuntu_php5.6
    lxc-ls -f
@@ -51,6 +51,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s11](assets/s11.png)
    
    c. merename ubuntu_php5.6 menjadi ubuntu_landing kemudian cek kembali list container yang tersedia
+   
    ```bash
    sudo lxc-copy -R -n ubuntu_php5.6 -N ubuntu_landing
    lxc-ls -f
