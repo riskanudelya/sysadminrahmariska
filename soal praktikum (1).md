@@ -32,26 +32,98 @@ Karena hal ini, mereka berdiskusi dengan tim programmer dan menghasilkan suatu k
 
 Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
-1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme
+1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme 
+
+   (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
    * #### Langkah Pengerjaan Soal Praktikum
-    1. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
-    
+    a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+
 
    ```bash
    sudo lxc-ls -f
+   ```
+    b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
+   ```bash
    lxc-stop ubuntu_php5.6
    lxc-ls -f
    ```
+   *tampilan proses*
    ![s11](assets/s11.PNG)
+   
+   c. merename ubuntu_php5.6 menjadi ubuntu_landing kemudian cek kembali list container yang tersedia
+   ```bash
+   sudo lxc-copy -R -n ubuntu_php5.6 -N ubuntu_landing
+   lxc-ls -f
+   ```
+   *tampilan ubuntu_php5.6 telah terganti menjadi ubuntu_landing*
 
-2. Install lxc debian 9 with the name debian_php5.6
-   * #### Langkah Pengerjaan Soal Praktikum
+   ![s12](assets/s12.PNG)
 
-3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information
-   * #### Langkah Pengerjaan Soal Praktikum
+   **ubuntu_landing**
 
-4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information
+   d. start ubuntu_landing dan masuk ke attach container pada lxc
+   ```bash
+   sudo lxc-start -n ubuntu_landing
+   lxc-attach -n ubuntu_landing
+   ```
+   ![s13](assets/s13.PNG)
+   e. set static IP
+   ```bash
+   nano /etc/network/interfaces
+   ```
+   
+   Ganti IP address menjadi 10.0.3.103 sesuai konsep baru topologi jaringan untuk ubuntu_landing
+   ![s14](assets/s14.PNG)
+
+   f. Lakukan restart setelah selesai mengubah IP apakah IP yang tadinya 102 sudah menjadi 103, jika belum maka lakukan perintah shutdown now, kemudian start kembali ubuntu landing dan masuk ke attach container dan cek ip kembali
+
+   ```bash
+   systemctl restart networking.service 
+   atau
+   shutdown now
+   sudo lxc-start -n ubuntu_landing
+   sudo lxc-attach -n ubuntu_landing
+   ifconfig
+   ```
+   ![s15](assets/s15.PNG)
+
+2. Install lxc debian 9 with the name debian_php5.6 
+  
+   (Install lxc debian 9 dengan nama debian_php5.6)
    * #### Langkah Pengerjaan Soal Praktikum
+   Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
+   
+   ![s21](assets/s21.PNG)
+   a. mengganti *sources list* ubuntu
+   
+   ![s22](assets/s22.PNG)
+   
+   b. dengan memasukkan directory debian 9
+   deb http://archive.debian.org/debian-non-US/ main contrib non-free
+   deb-src http://archive.debian.org/debian-non-US/ main contrib non-free
+
+   ![s23](assets/s23.PNG)
+
+   c. download debian dan buat lxc     
+   ![s24](assets/s24.PNG)
+   ![s25](assets/s25.PNG)
+   ![s26](assets/s26.PNG)
+   ![s27](assets/s27.PNG)
+   ![s28](assets/s28.PNG)
+   ![s29](assets/s29.PNG)
+
+
+3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
+
+   (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
+   * #### Langkah Pengerjaan Soal Praktikum
+   1. 
+
+4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
+
+   (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
+   * #### Langkah Pengerjaan Soal Praktikum
+   1. 
 
 5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
 - Exit from directory lxc ubuntu_landing
