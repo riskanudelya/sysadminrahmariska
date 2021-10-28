@@ -18,11 +18,11 @@ Gilang dan Adit adalah sysadmin junior pada suatu perusahaan. Perusahaan tersebu
 
 Setelah mendengarkan strategi domain dari CTO, Mereka mencoba membuat virtualisasi sederhana dengan skema dibawah ini :
 
-![topologi](assets/topologi.PNG)
+![topologi](assets/topologi.png)
 
 Dari skema diatas, mereka mementukan bahwa lxc_php5.dev akan digunakan sebagai server aplikasi dan lxc_php7.dev akan digunakan sebagai server blog dan vm.local digunakan sebagai proxy server serta untuk web landing page. Lantas, mereka bertemu dengan tim programmer. Tim Programmer memberi tahu kepada mereka bahwa ada perubahan baru baru ini terkait ubuntu 16.04.
 
-![news](assets/news.PNG)
+![news](assets/news.png)
 
 Karena hal ini, mereka berdiskusi dengan tim programmer dan menghasilkan suatu keputusan dimana skema yang akan dibuat adalah:
 
@@ -85,7 +85,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    sudo lxc-attach -n ubuntu_landing
    ifconfig
    ```
-   ![s15](assets/s15.PNG)
+   ![s15](assets/s15.png)
 
 2. Install lxc debian 9 with the name debian_php5.6 
   
@@ -93,24 +93,24 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    * #### Langkah Pengerjaan Soal Praktikum
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
-   ![s21](assets/s21.PNG)
+   ![s21](assets/s21.png)
    a. mengganti *sources list* ubuntu
    
-   ![s22](assets/s22.PNG)
+   ![s22](assets/s22.png)
    
    b. dengan memasukkan directory debian 9
    deb http://archive.debian.org/debian-non-US/ main contrib non-free
    deb-src http://archive.debian.org/debian-non-US/ main contrib non-free
 
-   ![s23](assets/s23.PNG)
+   ![s23](assets/s23.png)
 
    c. download debian dan buat lxc     
-   ![s24](assets/s24.PNG)
-   ![s25](assets/s25.PNG)
-   ![s26](assets/s26.PNG)
-   ![s27](assets/s27.PNG)
-   ![s28](assets/s28.PNG)
-   ![s29](assets/s29.PNG)
+   ![s24](assets/s24.png)
+   ![s25](assets/s25.png)
+   ![s26](assets/s26.png)
+   ![s27](assets/s27.png)
+   ![s28](assets/s28.png)
+   ![s29](assets/s29.png)
 
 
 3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
@@ -130,13 +130,13 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
     exit
     ```
-   ![s61](assets/s61.PNG)
+   ![s61](assets/s61.png)
 - Stop and check status ubuntu_landing
     ```
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
     ```
-    ![s62](assets/s62.PNG)
+    ![s62](assets/s62.png)
 
 - Go in directory /var/lib/lxc and directory ubuntu_landing/config
     ```
@@ -146,29 +146,29 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ls
     nano config
     ```
-   ![s63](assets/s63.PNG)
-   ![s64](assets/s64.PNG)
+   ![s63](assets/s63.png)
+   ![s64](assets/s64.png)
   
 - Autostart 1
     ```
     lxc.start.auto = 1
     ```
-   ![s65](assets/s65.PNG)
+   ![s65](assets/s65.png)
 
 - Exit and check
     ```
     exit
     sudo lxc-ls -f
     ```
-   ![s66](assets/s66.PNG)
+   ![s66](assets/s66.png)
 
 6. Setup nginx on vm.local to set proxy_pass where :
 - Setting hosts
   ```
   sudo nano /etc/hosts
   ```
-  ![s71](assets/s71.PNG)
-  ![s72](assets/s72.PNG)
+  ![s71](assets/s71.png)
+  ![s72](assets/s72.png)
 
 - Go in directory sites-available and vm.local
     ```
@@ -176,8 +176,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ls
     sudo nano vm.local
     ```
-   ![s73](assets/s73.PNG)
-   ![s75](assets/s75.PNG)
+   ![s73](assets/s73.png)
+   ![s75](assets/s75.png)
    - accessing http://vm.local will redirect to http://lxc_landing.dev :
     ```
     location / {
@@ -209,7 +209,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
   sudo nginx -t
   sudo nginx -s reload
   ```
-  ![s76](assets/s76.PNG)
+  ![s76](assets/s76.png)
 
 7. Access all three urls
 - Test and check curl -i
@@ -221,28 +221,28 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 - access http://vm.local/blog
 
-  ![s79](assets/s79.PNG)
+  ![s79](assets/s79.png)
 
 - access http://vm.local/app
 
-  ![s710](assets/s710.PNG)
+  ![s710](assets/s710.png)
 
 - access http://vm.local/
 
-  ![s711](assets/s711.PNG)
+  ![s711](assets/s711.png)
   
 - Konfigurasi ip hosts 
-  ![s712](assets/s712.PNG)
+  ![s712](assets/s712.png)
 
 
 8. Analisa
-
+   
    - Why for php5.6 needs can't use ubuntu 16.04, so it needs to change the os to debian 9?
       - In April 2021, Ubuntu 16.04 Xenial will reach End of Standart Support and will be available only as a paid option through Ubuntu Extended Security Maintenance.
    - Why use LXC virtualization on the website schema that will be developed?
       - Because OS virtualization that allows us to run multiple Linux systems on one computer system at the same time. Of course this platform only applies to Linux only.
    - What is a proxy server? why can we think of vm.local as a proxy server?
-     - A proxy server is a system that works as a network intermediary, for example when you access a website page, the proxy will request and receive information from the website to the device you are using. There are different levels of security, information confidentiality, and functions depending on the type you use. Because we use it as a network intermediary between the virtual machine and localhost
+     - A proxy server is a system that works as a network intermediary, for example when you access a website page, the proxy will request and receive information from the   website to the device you are using. There are different levels of security, information confidentiality, and functions depending on the type you use. Because we use it as a network intermediary between the virtual machine and localhost
 
 
 
