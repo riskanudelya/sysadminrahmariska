@@ -223,6 +223,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 (LXC ubuntu_landing harus auto start ketika vm dinyalakan, hal ini digunakan untuk menjaga agar website company profile tidak mengalami downtime)
    
    a. Exit from directory lxc ubuntu_landing
+   
     ```
     exit
     ```
