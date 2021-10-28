@@ -173,18 +173,22 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
    a. Exit from directory lxc ubuntu_landing
+   
     ```
     exit
     ```
    ![s61](assets/s61.png)
    
    b. Stop and check status ubuntu_landing
+   
     ```
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
     ```
     ![s62](assets/s62.png)
+    
     c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
+    
     ```
     cd /vsr/lib/lxc
     ls
@@ -196,12 +200,14 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s64](assets/s64.png)
    
    d. Autostart 1
+   
     ```
     lxc.start.auto = 1
     ```
    ![s65](assets/s65.png)
    
    e. Exit and check
+   
     ```
     exit
     sudo lxc-ls -f
@@ -211,6 +217,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **6. Setup nginx on vm.local to set proxy_pass where :**
    
    **a. Setting hosts**
+   
     ```
     sudo nano /etc/hosts
     ```
@@ -218,6 +225,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s72](assets/s72.png)
    
   **b. Go in directory sites-available and vm.local**
+  
     ```
     cd /etc/nginx/sites-available
     ls
@@ -226,6 +234,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
     - accessing http://vm.local will redirect to http://lxc_landing.dev :
+    
     ```
     location / {
         rewrite /?(.*)$ /$1 break;
@@ -234,6 +243,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
 
     - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
+    
     ```
     location /blog {
         rewrite /blog/?(.*)$ /$1 break;
@@ -242,6 +252,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
   
     - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
+    
     ```
     location /app {
         rewrite /app/?(.*)$ /$1 break;
@@ -250,6 +261,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    
    **c. Go in sites-enabled reset nginx**
+   
     ```
     cd ../sites-enabled
     ls -la
@@ -259,6 +271,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ![s76](assets/s76.png)
 
 **7. Access all three urls**
+
    a. Test and check curl -i
    ```
    curl -i http://vm.local/
