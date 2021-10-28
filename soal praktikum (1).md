@@ -121,11 +121,13 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    1. 
 
 5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
+   
    a. Exit from directory lxc ubuntu_landing
     ```
     exit
     ```
    ![s61](assets/s61.png)
+   
    b. Stop and check status ubuntu_landing
     ```
     sudo lxc-stop -n ubuntu_landing
@@ -142,11 +144,13 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    ![s63](assets/s63.png)
    ![s64](assets/s64.png)
+   
    d. Autostart 1
     ```
     lxc.start.auto = 1
     ```
    ![s65](assets/s65.png)
+   
    e. Exit and check
     ```
     exit
@@ -155,13 +159,15 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s66](assets/s66.png)
 
 6. Setup nginx on vm.local to set proxy_pass where :
+   
    a. Setting hosts
     ```
     sudo nano /etc/hosts
     ```
    ![s71](assets/s71.png)
    ![s72](assets/s72.png)
-  b. Go in directory sites-available and vm.local
+   
+   b. Go in directory sites-available and vm.local
     ```
     cd /etc/nginx/sites-available
     ls
@@ -169,7 +175,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
-   - accessing http://vm.local will redirect to http://lxc_landing.dev :
+    - accessing http://vm.local will redirect to http://lxc_landing.dev :
     ```
     location / {
         rewrite /?(.*)$ /$1 break;
@@ -177,7 +183,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     }
     ```
 
-   - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
+    - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
     ```
     location /blog {
         rewrite /blog/?(.*)$ /$1 break;
@@ -185,45 +191,45 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     }
     ```
   
-   - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
+    - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
     ```
     location /app {
         rewrite /app/?(.*)$ /$1 break;
         proxy_pass http://lxc_php5.dev;
     }
     ```
-  c. Go in sites-enabled reset nginx
-   ```
-   cd ../sites-enabled
-   ls -la
-   sudo nginx -t
-   sudo nginx -s reload
-   ```
-  ![s76](assets/s76.png)
+   
+   c. Go in sites-enabled reset nginx
+    ```
+    cd ../sites-enabled
+    ls -la
+    sudo nginx -t
+    sudo nginx -s reload
+    ```
+    ![s76](assets/s76.png)
 
 7. Access all three urls
-  a. Test and check curl -i
+   a. Test and check curl -i
    ```
    curl -i http://vm.local/
    curl -i http://vm.local/app
    curl -i http://vm.local/blog
    ```
-  b. access http://vm.local/blog
+   b. access http://vm.local/blog
 
-  ![s79](assets/s79.png)
+   ![s79](assets/s79.png)
 
-  c. access http://vm.local/app
+   c. access http://vm.local/app
 
-  ![s710](assets/s710.png)
+   ![s710](assets/s710.png)
 
-  d. access http://vm.local/
+   d. access http://vm.local/
 
-  ![s711](assets/s711.png)
+   ![s711](assets/s711.png)
   
-  e. Konfigurasi ip hosts 
+   e. Konfigurasi ip hosts 
   
-  ![s712](assets/s712.png)
-
+   ![s712](assets/s712.png)
 
 8. Analisa
    
