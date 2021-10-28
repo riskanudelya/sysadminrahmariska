@@ -91,7 +91,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **2. Install lxc debian 9 with the name debian_php5.6** 
   
    (Install lxc debian 9 dengan nama debian_php5.6)
-   * #### Langkah Pengerjaan Soal Praktikum
+  
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
    ![s21](assets/s21.png)
@@ -136,7 +136,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information** 
 
    (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   * #### Langkah Pengerjaan Soal Praktikum
+   
    a. install nginx dan nginx-extras di lxc debian_php5.6
 
  
@@ -166,20 +166,20 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s34](assets/s34.png)
 
 **4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information** 
-
-   (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   a. Exit debian_php5.6 and start ubuntu landing. Go to sites-available and edit lxc_php5.6.dev
+     (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
+  
+  a. Exit debian_php5.6 and start ubuntu landing. Go to sites-available and edit lxc_php5.6.dev
     ```
     sudo lxc-start -n ubuntu_landing
     sudo lxc-attach -n ubuntu_landing
     cd ../sites-available
     nano lxc_php5.6.dev
     ```
-    ![s51](assets/s51.png)
+   ![s51](assets/s51.png)
 
    b. Edit server name di lxc_php5.6.dev 
 
-    ![s52](assets/s52.png)
+   ![s52](assets/s52.png)
 
    c. Go to directory sites-enabled, test nginx and reload nginx
     ```
@@ -188,11 +188,11 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     nginx -t
     nginx -s reload
     ```
-    ![s53](assets/s53.png)
+   ![s53](assets/s53.png)
   
    d. Setting hosts directory /etc/hosts 
 
-    ![s54](assets/s54.png)
+   ![s54](assets/s54.png)
 
    e. Go to directory html and check 
     ```
@@ -200,17 +200,17 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ls
     cd /var/www/html/lxc_php5.6/
     ```
-    ![s55](assets/s55.png)
+   ![s55](assets/s55.png)
 
    f. Edit index.html 'Halaman ini dari lxc ubuntu_landing'
 
-    ![s59](assets/s59.png)
+   ![s59](assets/s59.png)
 
    g. Check (http://lxc_landing.dev) pada localhost lxc ubuntu_landing menggunakan curl
     ```
     curl -i http://lxc_landing.dev
     ```
-    ![s58](assets/s58.png)
+   ![s58](assets/s58.png)
 
 **5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
