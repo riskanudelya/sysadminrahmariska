@@ -35,8 +35,10 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme 
 
    (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
-   
-   a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+   * #### Langkah Pengerjaan Soal Praktikum
+    a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+
+
    ```bash
    sudo lxc-ls -f
    ```
@@ -64,7 +66,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    sudo lxc-start -n ubuntu_landing
    lxc-attach -n ubuntu_landing
    ```
-   ![s13](assets/s13.png)
+   ![s13](assets/s13.PNG)
    e. set static IP
    ```bash
    nano /etc/network/interfaces
@@ -88,6 +90,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 2. Install lxc debian 9 with the name debian_php5.6 
   
    (Install lxc debian 9 dengan nama debian_php5.6)
+   * #### Langkah Pengerjaan Soal Praktikum
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
    ![s21](assets/s21.png)
@@ -101,19 +104,65 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
    ![s23](assets/s23.png)
 
-   c. download debian dan buat lxc     
+   c. download lxc debian dan buat lxc nama-nya menjadi debian_php5.6
+   ```bash
+   sudo lxc-create -n debian_php5.6 -t download -- --dist debian --release stretch --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+   ```      
    ![s24](assets/s24.png)
    ![s25](assets/s25.png)
+
+   d. jika sudah install maka lihat info status debian_5.6
+   ```bash
+   sudo lxc-info -n debian_php5.6
+   ```
+   Jika kondisi stopped maka start dengan cara
+   ```bash
+   lxc-start -n debian_php5.6
+   ```
    ![s26](assets/s26.png)
+ 
+   lakukan update dan upgrade
+   ```bash
+   sudo apt update; sudo apt upgrade -y
+   ```
    ![s27](assets/s27.png)
    ![s28](assets/s28.png)
+
+   cek list container untuk memastikan daftar name lxc sesuai
    ![s29](assets/s29.png)
 
 
 3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
 
    (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   1. 
+   * #### Langkah Pengerjaan Soal Praktikum
+   a. install nginx dan nginx-extras di lxc debian_php5.6
+
+ 
+   ```bash
+   sudo apt install nginx nginx-extras
+   ```
+   ![s31](assets/s31.png)
+
+   b. set static IP
+   ```bash
+   apt install nano net-tools curl
+   ```
+   ![s32](assets/s32.png)
+   c.
+   ```bash
+   nano /etc/network/interfaces setting ip address menjadi 10.0.3.102
+   ```
+   ![s33](assets/s33.png)
+   d. lakukan perintah shutdown agar ip lebih cepat terdeteksi setelah diganti menjadi 102, kemudian start kembali dan masuk ke attach container, kemudian ifconfig
+
+   ```bash
+   shutdown now
+   sudo lxc-start -n debian.php5.6
+   sudo lxc-attach -n debian.php5.6
+   ifconfig
+   ```
+   ![s34](assets/s34.png)
 
 4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
 
