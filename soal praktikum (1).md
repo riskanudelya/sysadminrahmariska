@@ -88,7 +88,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
    ![s15](assets/s15.png)
 
-**2. Install lxc debian 9 with the name debian_php5.6 
+**2. Install lxc debian 9 with the name debian_php5.6** 
   
    (Install lxc debian 9 dengan nama debian_php5.6)
    * #### Langkah Pengerjaan Soal Praktikum
@@ -133,7 +133,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s29](assets/s29.png)
 
 
-**3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
+**3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information** 
 
    (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
    * #### Langkah Pengerjaan Soal Praktikum
@@ -165,12 +165,12 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
    ![s34](assets/s34.png)
 
-**4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
+**4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information** 
 
    (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
    1. 
 
-**5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
+**5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
    a. Exit from directory lxc ubuntu_landing
     ```
@@ -208,16 +208,16 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    ![s66](assets/s66.png)
 
-**6. Setup nginx on vm.local to set proxy_pass where :
+**6. Setup nginx on vm.local to set proxy_pass where :**
    
-   a. Setting hosts
+   **a. Setting hosts**
     ```
     sudo nano /etc/hosts
     ```
    ![s71](assets/s71.png)
    ![s72](assets/s72.png)
    
-   b. Go in directory sites-available and vm.local
+  **b. Go in directory sites-available and vm.local**
     ```
     cd /etc/nginx/sites-available
     ls
@@ -249,7 +249,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     }
     ```
    
-   c. Go in sites-enabled reset nginx
+   **c. Go in sites-enabled reset nginx**
     ```
     cd ../sites-enabled
     ls -la
