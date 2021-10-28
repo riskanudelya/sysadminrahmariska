@@ -168,116 +168,158 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information** 
 
    (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
-   1. 
+   a. Exit debian_php5.6 and start ubuntu landing. Go to sites-available and edit lxc_php5.6.dev
+    ```
+    sudo lxc-start -n ubuntu_landing
+    sudo lxc-attach -n ubuntu_landing
+    cd ../sites-available
+    nano lxc_php5.6.dev
+    ```
+    ![s51](assets/s51.png)
+
+   b. Edit server name di lxc_php5.6.dev 
+
+    ![s52](assets/s52.png)
+
+   c. Go to directory sites-enabled, test nginx and reload nginx
+    ```
+    cd ../sites-enabled
+    ls -la
+    nginx -t
+    nginx -s reload
+    ```
+    ![s53](assets/s53.png)
+  
+   d. Setting hosts directory /etc/hosts 
+
+    ![s54](assets/s54.png)
+
+   e. Go to directory html and check 
+    ```
+    cd /var/www/html
+    ls
+    cd /var/www/html/lxc_php5.6/
+    ```
+    ![s55](assets/s55.png)
+
+   f. Edit index.html 'Halaman ini dari lxc ubuntu_landing'
+
+    ![s59](assets/s59.png)
+
+   g. Check (http://lxc_landing.dev) pada localhost lxc ubuntu_landing menggunakan curl
+    ```
+    curl -i http://lxc_landing.dev
+    ```
+    ![s58](assets/s58.png)
 
 **5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
    a. Exit from directory lxc ubuntu_landing
    
-    
+    ```
     exit
-    
+    ```
    ![s61](assets/s61.png)
    
    b. Stop and check status ubuntu_landing
    
-    
+    ```
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
-    
+    ```
     ![s62](assets/s62.png)
     
     c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
     
-    
+    ```
     cd /vsr/lib/lxc
     ls
     cd ubuntu_landing
     ls
     nano config
-    
+    ```
    ![s63](assets/s63.png)
    ![s64](assets/s64.png)
    
    d. Autostart 1
    
-    
+    ```
     lxc.start.auto = 1
-    
+    ```
    ![s65](assets/s65.png)
    
    e. Exit and check
    
-    
+    ```
     exit
     sudo lxc-ls -f
-    
+    ```
    ![s66](assets/s66.png)
 
 **6. Setup nginx on vm.local to set proxy_pass where :**
    
    **a. Setting hosts**
    
-    
+    ```
     sudo nano /etc/hosts
-    
+    ```
    ![s71](assets/s71.png)
    ![s72](assets/s72.png)
    
   **b. Go in directory sites-available and vm.local**
   
-    
+    ```
     cd /etc/nginx/sites-available
     ls
     sudo nano vm.local
-    
+    ```
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
     - accessing http://vm.local will redirect to http://lxc_landing.dev :
     
-    
+    ```
     location / {
         rewrite /?(.*)$ /$1 break;
         proxy_pass http://lxc_landing.dev;
     }
-    
+    ```
 
     - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
     
-    
+    ```
     location /blog {
         rewrite /blog/?(.*)$ /$1 break;
         proxy_pass http://lxc_php7.dev
     }
-    
+    ```
   
     - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
     
-    
+    ```
     location /app {
         rewrite /app/?(.*)$ /$1 break;
         proxy_pass http://lxc_php5.dev;
     }
-    
+    ```
    
    **c. Go in sites-enabled reset nginx**
    
-    
+    ```
     cd ../sites-enabled
     ls -la
     sudo nginx -t
     sudo nginx -s reload
-    
+    ```
     ![s76](assets/s76.png)
 
 **7. Access all three urls**
 
    a. Test and check curl -i
-   
+   ```
    curl -i http://vm.local/
    curl -i http://vm.local/app
    curl -i http://vm.local/blog
-   
+   ```
    b. access http://vm.local/blog
 
    ![s79](assets/s79.png)
