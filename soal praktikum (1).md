@@ -121,19 +121,18 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    1. 
 
 5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
-- Exit from directory lxc ubuntu_landing
+   a. Exit from directory lxc ubuntu_landing
     ```
     exit
     ```
    ![s61](assets/s61.png)
-- Stop and check status ubuntu_landing
+   b. Stop and check status ubuntu_landing
     ```
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
     ```
     ![s62](assets/s62.png)
-
-- Go in directory /var/lib/lxc and directory ubuntu_landing/config
+    c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
     ```
     cd /vsr/lib/lxc
     ls
@@ -143,14 +142,12 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    ![s63](assets/s63.png)
    ![s64](assets/s64.png)
-  
-- Autostart 1
+   d. Autostart 1
     ```
     lxc.start.auto = 1
     ```
    ![s65](assets/s65.png)
-
-- Exit and check
+   e. Exit and check
     ```
     exit
     sudo lxc-ls -f
@@ -158,14 +155,13 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s66](assets/s66.png)
 
 6. Setup nginx on vm.local to set proxy_pass where :
-- Setting hosts
-  ```
-  sudo nano /etc/hosts
-  ```
-  ![s71](assets/s71.png)
-  ![s72](assets/s72.png)
-
-- Go in directory sites-available and vm.local
+   a. Setting hosts
+    ```
+    sudo nano /etc/hosts
+    ```
+   ![s71](assets/s71.png)
+   ![s72](assets/s72.png)
+  b. Go in directory sites-available and vm.local
     ```
     cd /etc/nginx/sites-available
     ls
@@ -196,37 +192,36 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
         proxy_pass http://lxc_php5.dev;
     }
     ```
-
-- Go in sites-enabled reset nginx
-  ```
-  cd ../sites-enabled
-  ls -la
-  sudo nginx -t
-  sudo nginx -s reload
-  ```
+  c. Go in sites-enabled reset nginx
+   ```
+   cd ../sites-enabled
+   ls -la
+   sudo nginx -t
+   sudo nginx -s reload
+   ```
   ![s76](assets/s76.png)
 
 7. Access all three urls
-- Test and check curl -i
-  ```
-  curl -i http://vm.local/
-  curl -i http://vm.local/app
-  curl -i http://vm.local/blog
-  ```
-
-- access http://vm.local/blog
+  a. Test and check curl -i
+   ```
+   curl -i http://vm.local/
+   curl -i http://vm.local/app
+   curl -i http://vm.local/blog
+   ```
+  b. access http://vm.local/blog
 
   ![s79](assets/s79.png)
 
-- access http://vm.local/app
+  c. access http://vm.local/app
 
   ![s710](assets/s710.png)
 
-- access http://vm.local/
+  d. access http://vm.local/
 
   ![s711](assets/s711.png)
   
-- Konfigurasi ip hosts 
+  e. Konfigurasi ip hosts 
+  
   ![s712](assets/s712.png)
 
 
