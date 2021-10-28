@@ -169,7 +169,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
      (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
   
   a. Exit debian_php5.6 and start ubuntu landing. Go to sites-available and edit lxc_php5.6.dev
-    ```
+  
+    ```bash
     sudo lxc-start -n ubuntu_landing
     sudo lxc-attach -n ubuntu_landing
     cd ../sites-available
@@ -182,7 +183,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s52](assets/s52.png)
 
    c. Go to directory sites-enabled, test nginx and reload nginx
-    ```
+   
+    ```bash
     cd ../sites-enabled
     ls -la
     nginx -t
@@ -195,7 +197,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s54](assets/s54.png)
 
    e. Go to directory html and check 
-    ```
+   
+    ```bash
     cd /var/www/html
     ls
     cd /var/www/html/lxc_php5.6/
@@ -207,7 +210,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s59](assets/s59.png)
 
    g. Check (http://lxc_landing.dev) pada localhost lxc ubuntu_landing menggunakan curl
-    ```
+   
+    ```bash
     curl -i http://lxc_landing.dev
     ```
    ![s58](assets/s58.png)
@@ -216,14 +220,14 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
    a. Exit from directory lxc ubuntu_landing
    
-    ```
+    ```bash
     exit
     ```
    ![s61](assets/s61.png)
    
    b. Stop and check status ubuntu_landing
    
-    ```
+    ```bash
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
     ```
@@ -231,7 +235,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     
     c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
     
-    ```
+    ```bash
     cd /vsr/lib/lxc
     ls
     cd ubuntu_landing
@@ -243,14 +247,14 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
    d. Autostart 1
    
-    ```
+    ```bash
     lxc.start.auto = 1
     ```
    ![s65](assets/s65.png)
    
    e. Exit and check
    
-    ```
+    ```bash
     exit
     sudo lxc-ls -f
     ```
@@ -260,7 +264,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
    **a. Setting hosts**
    
-    ```
+    ```bash
     sudo nano /etc/hosts
     ```
    ![s71](assets/s71.png)
@@ -268,7 +272,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
   **b. Go in directory sites-available and vm.local**
   
-    ```
+    ```bash
     cd /etc/nginx/sites-available
     ls
     sudo nano vm.local
@@ -277,7 +281,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s75](assets/s75.png)
     - accessing http://vm.local will redirect to http://lxc_landing.dev :
     
-    ```
+    ```bash
     location / {
         rewrite /?(.*)$ /$1 break;
         proxy_pass http://lxc_landing.dev;
@@ -286,7 +290,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
     - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
     
-    ```
+    ```bash
     location /blog {
         rewrite /blog/?(.*)$ /$1 break;
         proxy_pass http://lxc_php7.dev
@@ -295,7 +299,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
   
     - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
     
-    ```
+    ```bash
     location /app {
         rewrite /app/?(.*)$ /$1 break;
         proxy_pass http://lxc_php5.dev;
@@ -304,7 +308,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    
    **c. Go in sites-enabled reset nginx**
    
-    ```
+    ```bash
     cd ../sites-enabled
     ls -la
     sudo nginx -t
@@ -315,11 +319,13 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 **7. Access all three urls**
 
    a. Test and check curl -i
-   ```
+   
+   ```bash
    curl -i http://vm.local/
    curl -i http://vm.local/app
    curl -i http://vm.local/blog
    ```
+   
    b. access http://vm.local/blog
 
    ![s79](assets/s79.png)
