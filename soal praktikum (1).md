@@ -92,7 +92,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **2. Install lxc debian 9 with the name debian_php5.6** 
   
-     (Install lxc debian 9 dengan nama debian_php5.6)
+(Install lxc debian 9 dengan nama debian_php5.6)
   
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
@@ -137,7 +137,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information** 
 
-     (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
+(setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
    
    a. install nginx dan nginx-extras di lxc debian_php5.6
 
@@ -291,7 +291,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
-    - accessing http://vm.local will redirect to http://lxc_landing.dev :
+   - accessing http://vm.local will redirect to http://lxc_landing.dev :
     
    ```bash
     location / {
@@ -300,7 +300,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     }
    ```
 
-    - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
+   - accessing http://vm.local/blog will redirect to http://lxc_php7.dev :
     
    ```bash
     location /blog {
@@ -309,7 +309,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     }
    ```
   
-    - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
+   - accessing http://vm.local/app will redirect to http://lxc_php5.dev :
     
    ```bash
     location /app {
@@ -327,7 +327,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     sudo nginx -s reload
    ```
     
-    ![s76](assets/s76.png)
+   ![s76](assets/s76.png)
 
 **7. Access all three urls**
 
