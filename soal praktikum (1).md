@@ -102,9 +102,11 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s22](assets/s22.png)
    
    b. dengan memasukkan directory debian 9
+   ```bash
    deb http://archive.debian.org/debian-non-US/ main contrib non-free
    deb-src http://archive.debian.org/debian-non-US/ main contrib non-free
-
+   ```
+   
    ![s23](assets/s23.png)
 
    c. download lxc debian dan buat lxc nama-nya menjadi debian_php5.6
