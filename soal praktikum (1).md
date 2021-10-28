@@ -66,7 +66,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    sudo lxc-start -n ubuntu_landing
    lxc-attach -n ubuntu_landing
    ```
-   ![s13](assets/s13.PNG)
+   ![s13](assets/s13.png)
+   
    e. set static IP
    ```bash
    nano /etc/network/interfaces
@@ -149,9 +150,9 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    apt install nano net-tools curl
    ```
    ![s32](assets/s32.png)
-   c.
+   c. setting ip address menjadi 10.0.3.102
    ```bash
-   nano /etc/network/interfaces setting ip address menjadi 10.0.3.102
+   nano /etc/network/interfaces
    ```
    ![s33](assets/s33.png)
    d. lakukan perintah shutdown agar ip lebih cepat terdeteksi setelah diganti menjadi 102, kemudian start kembali dan masuk ke attach container, kemudian ifconfig
