@@ -33,16 +33,16 @@ Karena hal ini, mereka berdiskusi dengan tim programmer dan menghasilkan suatu k
 Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 **1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme** 
-
-     (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
-     
-    a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+(Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
+     a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
 
 
    ```bash
    sudo lxc-ls -f
    ```
-    b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
+ 
+     b. stop ubuntu_php5.6 sebelum melakukan rename, pastikan sudah dalam kondisi stopped dengan cek kembali list container
+   
    ```bash
    lxc-stop ubuntu_php5.6
    lxc-ls -f
@@ -62,6 +62,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    **ubuntu_landing**
 
    d. start ubuntu_landing dan masuk ke attach container pada lxc
+   
    ```bash
    sudo lxc-start -n ubuntu_landing
    lxc-attach -n ubuntu_landing
@@ -69,6 +70,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s13](assets/s13.png)
    
    e. set static IP
+   
    ```bash
    nano /etc/network/interfaces
    ```
@@ -95,34 +97,42 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    Bisa mengecek list container terlebih dahulu sebelum menginstall lxc debian 9 dengan nama debian_php5.6 agar dapat terlihat perbedaannya (pre n post)
    
    ![s21](assets/s21.png)
+   
    a. mengganti *sources list* ubuntu
    
    ![s22](assets/s22.png)
    
    b. dengan memasukkan directory debian 9
+   
    deb http://archive.debian.org/debian-non-US/ main contrib non-free
    deb-src http://archive.debian.org/debian-non-US/ main contrib non-free
 
    ![s23](assets/s23.png)
 
    c. download lxc debian dan buat lxc nama-nya menjadi debian_php5.6
+   
    ```bash
    sudo lxc-create -n debian_php5.6 -t download -- --dist debian --release stretch --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
    ```      
+   
    ![s24](assets/s24.png)
    ![s25](assets/s25.png)
 
    d. jika sudah install maka lihat info status debian_5.6
+   
    ```bash
    sudo lxc-info -n debian_php5.6
    ```
+   
    Jika kondisi stopped maka start dengan cara
+   
    ```bash
    lxc-start -n debian_php5.6
    ```
    ![s26](assets/s26.png)
  
    lakukan update dan upgrade
+   
    ```bash
    sudo apt update; sudo apt upgrade -y
    ```
@@ -146,15 +156,19 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s31](assets/s31.png)
 
    b. set static IP
+   
    ```bash
    apt install nano net-tools curl
    ```
    ![s32](assets/s32.png)
+   
    c. setting ip address menjadi 10.0.3.102
+   
    ```bash
    nano /etc/network/interfaces
    ```
    ![s33](assets/s33.png)
+   
    d. lakukan perintah shutdown agar ip lebih cepat terdeteksi setelah diganti menjadi 102, kemudian start kembali dan masuk ke attach container, kemudian ifconfig
 
    ```bash
