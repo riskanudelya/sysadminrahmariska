@@ -36,8 +36,8 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
 (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
     
-    a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
-
+   a. menampilkan container tersedia sebelum melakukan rename ubuntu_php5.6
+   
    ```bash
    sudo lxc-ls -f
    ```
