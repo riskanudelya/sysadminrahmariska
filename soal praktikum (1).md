@@ -48,7 +48,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    lxc-ls -f
    ```
    *tampilan proses*
-   ![s11](assets/s11.PNG)
+   ![s11](assets/s11.png)
    
    c. merename ubuntu_php5.6 menjadi ubuntu_landing kemudian cek kembali list container yang tersedia
    ```bash
@@ -57,7 +57,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
    *tampilan ubuntu_php5.6 telah terganti menjadi ubuntu_landing*
 
-   ![s12](assets/s12.PNG)
+   ![s12](assets/s12.png)
 
    **ubuntu_landing**
 
