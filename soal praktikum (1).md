@@ -215,17 +215,19 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
     curl -i http://lxc_landing.dev
     ```
+    
    ![s58](assets/s58.png)
 
 **5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
-     (LXC ubuntu_landing harus auto start ketika vm dinyalakan, hal ini digunakan untuk menjaga agar website company profile tidak mengalami downtime)
+(LXC ubuntu_landing harus auto start ketika vm dinyalakan, hal ini digunakan untuk menjaga agar website company profile tidak mengalami downtime)
    
    a. Exit from directory lxc ubuntu_landing
    
     ```
     exit
     ```
+    
    ![s61](assets/s61.png)
    
    b. Stop and check status ubuntu_landing
@@ -234,6 +236,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     sudo lxc-stop -n ubuntu_landing
     lxc-ls -f
     ```
+    
     ![s62](assets/s62.png)
     
     c. Go in directory /var/lib/lxc and directory ubuntu_landing/config
@@ -245,6 +248,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ls
     nano config
     ```
+    
    ![s63](assets/s63.png)
    ![s64](assets/s64.png)
    
@@ -253,6 +257,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
     lxc.start.auto = 1
     ```
+    
    ![s65](assets/s65.png)
    
    e. Exit and check
@@ -261,6 +266,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     exit
     sudo lxc-ls -f
     ```
+    
    ![s66](assets/s66.png)
 
 **6. Setup nginx on vm.local to set proxy_pass where :**
@@ -272,6 +278,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
     sudo nano /etc/hosts
     ```
+    
    ![s71](assets/s71.png)
    ![s72](assets/s72.png)
    
@@ -282,6 +289,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ls
     sudo nano vm.local
     ```
+    
    ![s73](assets/s73.png)
    ![s75](assets/s75.png)
     - accessing http://vm.local will redirect to http://lxc_landing.dev :
@@ -319,6 +327,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     sudo nginx -t
     sudo nginx -s reload
     ```
+    
     ![s76](assets/s76.png)
 
 **7. Access all three urls**
@@ -331,6 +340,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    curl -i http://vm.local/app
    curl -i http://vm.local/blog
    ```
+   
    b. access http://vm.local/blog
 
    ![s79](assets/s79.png)
