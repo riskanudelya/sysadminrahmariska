@@ -32,7 +32,7 @@ Karena hal ini, mereka berdiskusi dengan tim programmer dan menghasilkan suatu k
 
 Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
 
-1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme 
+**1. Rename ubuntu_php5.6 to ubuntu_landing, and change the IP following the new scheme** 
 
    (Rename ubuntu_php5.6 menjadi ubuntu_landing, serta rubah IP mengikuti skema yang baru)
    * #### Langkah Pengerjaan Soal Praktikum
@@ -88,7 +88,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
    ![s15](assets/s15.png)
 
-2. Install lxc debian 9 with the name debian_php5.6 
+**2. Install lxc debian 9 with the name debian_php5.6 
   
    (Install lxc debian 9 dengan nama debian_php5.6)
    * #### Langkah Pengerjaan Soal Praktikum
@@ -133,7 +133,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ![s29](assets/s29.png)
 
 
-3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
+**3. Setup nginx on debian_php5.6 for the http://lxc_php5.dev domain, create an index.html page that describes the lxc name information 
 
    (setup nginx pada debian_php5.6 untuk domain http://lxc_php5.dev , buat halaman index.html yang menerangkan informasi nama lxc)
    * #### Langkah Pengerjaan Soal Praktikum
@@ -165,12 +165,12 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
    ![s34](assets/s34.png)
 
-4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
+**4. Setup nginx on ubuntu_landing for the http://lxc_landing.dev domain, create an index.html page that describes the lxc name information 
 
    (setup nginx pada ubuntu_landing untuk domain http://lxc_landing.dev , buat halaman index.html yang menerangkan informasi nama lxc)
    1. 
 
-5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
+**5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime
    
    a. Exit from directory lxc ubuntu_landing
     ```
@@ -208,7 +208,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
    ![s66](assets/s66.png)
 
-6. Setup nginx on vm.local to set proxy_pass where :
+**6. Setup nginx on vm.local to set proxy_pass where :
    
    a. Setting hosts
     ```
@@ -258,7 +258,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
     ```
     ![s76](assets/s76.png)
 
-7. Access all three urls
+**7. Access all three urls**
    a. Test and check curl -i
    ```
    curl -i http://vm.local/
@@ -281,7 +281,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
   
    ![s712](assets/s712.png)
 
-8. Analisa
+**8. Analisa**
    
    - Why for php5.6 needs can't use ubuntu 16.04, so it needs to change the os to debian 9?
       - In April 2021, Ubuntu 16.04 Xenial will reach End of Standart Support and will be available only as a paid option through Ubuntu Extended Security Maintenance.
