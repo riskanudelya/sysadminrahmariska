@@ -221,6 +221,7 @@ Dari skema diatas maka mereka akan melakukan pekerjaan sebagai berikut :
    ```
     
    ![s58](assets/s58.png)
+   ![s60](assets/s60.png)
 
 **5. LXC ubuntu_landing should auto start when the vm is started, this is used to keep the company profile website from experiencing downtime**
    
