@@ -222,7 +222,6 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 ```
 
 ![w63](asset2/w63.png)
-![w63](asset2/w63.PNG)
 
 ## Soal Latihan Praktikum (*DIWYOR*)
 
