@@ -221,7 +221,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 # jangan lupa untuk mematikan auto start di config lxc backup
 ```
 
-![lxc-backup](assets/lxc-backup.png)
+![w63](asset2/w63.png)
+![w63](asset2/w63.PNG)
 
 ## Soal Latihan Praktikum (*DIWYOR*)
 
