@@ -270,9 +270,9 @@ Proses Set up autostart lxc yang belum tersetting
    ![cp32](asset2/cp32.png)
    
    
----   
-Exit dan masuk kembali ke server Ubuntu kita
----
+   
+*Exit dan masuk kembali ke server Ubuntu kita*
+
 
 ![cp4](asset2/cp4.png)
    
