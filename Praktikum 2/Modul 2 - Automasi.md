@@ -240,6 +240,8 @@ Proses Set up autostart lxc yang belum tersetting
 ### Copy File
 
 1. Buat file copy.yml, dengan isi
+   
+   ![cp1](asset2/cp1.png)
 
    ```yaml
    - hosts: php5
@@ -249,20 +251,23 @@ Proses Set up autostart lxc yang belum tersetting
        - name: Copy file install-lynx.yml
          copy: src=./install-lynx.yml dest=/tmp/dari-host/install-lynx.yml
    ```
-
+   ![cp12](asset2/cp12.png)
+   
 2. Jalankan dengan perintah
 
    ```bash
     ansible-playbook -i hosts copy.yml -k
    ```
 
-   ![ansible-copy](assets/ansible-copy.png)
+   ![cp2](asset2/cp2.png)
+   
+   ![cp22](asset2/cp22.png)
 
 3. Cek ke lxc group php5, apakah sudah terinstall
 
-   ![copy-landing](assets/copy-landing.png)
+   ![cp3](asset2/cp3.png)
 
-   ![copy-php5](assets/copy-php5.png)
+   ![cp32](asset2/cp32.png)
 
    
 
