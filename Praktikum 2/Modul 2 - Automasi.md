@@ -443,6 +443,7 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
 
    - Jangan lupa dibackup dulu :)
+   
      *Sebelum backup saya akan reboot server Ubuntu untuk cek apakah autostart mariadb berubah, setelah itu saya akan stop running dan back up*
 
      ![t119](asset2/t119.png)
@@ -1060,6 +1061,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
      - Buat file deploy-app.yml
 
+      ![t2](asset2/t2.png)
+
        ```
        - hosts: php5
          vars:
@@ -1069,9 +1072,14 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
          roles:
            - app
        ```
+       
+       
+       ![t22](asset2/t22.png)
 
      - Disini kita akan membuat roles yang bernama `app` . roles ini berisi kumpulan task instalasi dan konfigurasi phpmyadmin
-
+        
+       ![t23](asset2/t23.png)
+       
      - Didalam folder `roles/app` terdapat beberapa folder, yakni `handlers`, `tasks` dan `templates`. Folder `handlers` berisi perintah perintah untuk menjalankan nginx dan php seperti restart, sedangkan folder `tasks` berisi script instalasi phpmyadmin dan folder `templates` berisi template konfigurasi untuk nginx.
 
        ```bash
@@ -1081,6 +1089,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
 
      - roles/app/tasks/main.yml akan berisi:
+     
+       ![t24](asset2/t24.png)
 
        ```
        ---
@@ -1167,6 +1177,9 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
      - roles/app/templates/app.conf akan berisi:
 
+       ![t25](asset2/t25.png)
+       ![t26](asset2/t26.png)
+
        ```ini
        server {
          listen 80;`
@@ -1186,6 +1199,9 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
 
      - roles/app/handlers/main.yml akan berisi:
+        
+       ![t27](asset2/t27.png)
+       ![t28](asset2/t28.png)
 
        ```
        ---
@@ -1204,9 +1220,19 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
      - Jalankan perintah
 
+       ![t29](asset2/t29.png)
+
        ```
        ansible-playbook -i hosts deploy-app.yml -k
        ```
 
-       ![result-deploy](assets/result-deplot.png)
+       ![t210](asset2/t210.png)
+       ![t211](asset2/t211.png)
+       
+       
+       tampilan browser
+       ![t212](asset2/t212.png)
+       
+
+
 
