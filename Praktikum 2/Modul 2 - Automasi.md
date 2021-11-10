@@ -443,14 +443,34 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
 
    - Jangan lupa dibackup dulu :)
+     *Sebelum backup saya akan reboot server Ubuntu untuk cek apakah autostart mariadb berubah, setelah itu saya akan stop running dan back up*
 
+     ![t119](asset2/t119.png)
+
+    *Berhasil*
+     ![t120](asset2/t120.png)
+
+    *Stop running*
+     ![t121](asset2/t121.png)
+
+    *Matikan autostart mariadb_backup*
+     ![t122](asset2/t122.png)
+     ![t123](asset2/t123.png)
+
+     ![t124](asset2/t124.png)
+     ![t125](asset2/t125.png)
+     
+     
+     
    - Daftar kan domain lxc_mariadb ke /etc/hosts
 
      ```bash
      sudo nano /etc/hosts
      ```
 
-     ![hosts](assets/hosts.png)
+     ![t126](asset2/t126.png)
+     ![t127](asset2/t127.png)
+     
 
    - Buat ansible untuk install dan  konfigurasi mariadb 
 
@@ -461,8 +481,20 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        mkdir modul2-ansible
        cd modul2-ansible
        ```
-
+       
+       ![t128](asset2/t128.png)
+       
+       
+       
+       
+       
+       
+       
+       
+       
      - Buat file hosts yang berisi:
+       ![t129](asset2/t129.png)
+       
 
        ```bash
        [php5]
@@ -475,8 +507,12 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        [database]
        lxc_mariadb ansible_host=lxc_mariadb.dev ansible_ssh_user=root ansible_become_pass=a
        ```
+       
+       ![t130](asset2/t130.png)
 
      - Membuat install-mariadb.yml, yang berisi
+       ![t131](asset2/t131.png)
+       
 
        ```yaml
        - hosts: database
@@ -486,13 +522,16 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
          roles:
            - { role: db }
        ```
+       ![t132](asset2/t132.png)
 
      - Disini kita akan membuat roles yang bernama `db` . roles ini berisi kumpulan task instalasi dan konfigurasi mariadb
 
        ```bash
        mkdir -p roles/db
        ```
-
+       
+       ![t133](asset2/t133.png)
+       
      - Didalam folder `roles/db` terdapat beberapa folder, yakni `handlers`, `tasks` dan `templates`. Folder `handlers` berisi perintah perintah untuk menjalankan mariadb seperti restart, sedangkan folder `tasks` berisi script instalasi mariadb dan folder `templates` berisi template konfigurasi untuk mariadb.
 
        ```bash
@@ -507,8 +546,13 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        cd roles/db/tasks
        nano main.yml
        ```
-
+       
+      ![t134](asset2/t134.png)
+      ![t135](asset2/t135.png)
+      
      - roles/db/tasks/main.yml akan berisi:
+       Isinya copy sesuai modul
+       ![t136](asset2/t136.png)
 
        ```yaml
        ---
@@ -585,6 +629,11 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
        
      - roles/db/templates/my.cnf akan berisi:
+       ![t137](asset2/t137.png)
+       
+       Copy paste dari modul saja
+       ![t138](asset2/t138.png)
+       
      
        ```ini
        #
@@ -724,6 +773,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
      
      - roles/db/handlers/main.yml akan berisi:
+       ![t139](asset2/t139.png)
+       ![t140](asset2/t140.png)
      
        ```yaml
        ---
@@ -735,14 +786,22 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
      
      - Jalankan perintah
-     
+            
        ```bash
        cd ~/ansible/modul2-ansible
        ansible-playbook -i hosts install-mariadb.yml -k
        ```
      
-       ![ansible-db](assets/ansible-db.png)
+       Setelah itu exit dari handlers dan masuk ke ansible saja
+       ![t141](asset2/t141.png)
        
+       Berhasil—
+       ![t142](asset2/t142.png)
+       ![t143](asset2/t143.png)
+
+
+       
+
      - Check apakah db sudah terinstall
      
        ```bash
@@ -752,7 +811,10 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        show databases;
        ```
      
-       ![check-db](assets/check-db.png)
+       Pass root mariadb.dev : 100
+       Pass my sql mariadb : SysAdminSas0102
+       ![t144](asset2/t144.png)
+       ![t145](asset2/t145.png)
      
    - Setup ansible nginx untuk mengakses phpmyadmin
    
@@ -768,7 +830,18 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
            - db
            - pma
        ```
-   
+       
+       edit `nano install-mariadb.yml`
+       ![t146](asset2/t146.png)
+
+       Before
+       ![t147](asset2/t147.png)
+       
+       After
+       ![t148](asset2/t148.png)
+ 
+
+
      - Disini kita akan membuat roles yang bernama `pma` . roles ini berisi kumpulan task instalasi dan konfigurasi phpmyadmin
    
        ```bash
@@ -783,7 +856,14 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        mkdir -p roles/pma/templates
        ```
    
+      ![t149](asset2/t149.png)
+      
      - roles/pma/tasks/main.yml akan berisi:
+       ![t150](asset2/t150.png)
+       
+       Isi copy paste sesuai modul
+       ![t151](asset2/t151.png)
+
    
        ```yaml
        ---
@@ -837,6 +917,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
        ```
        
      - roles/pma/templates/pma.local akan berisi:
+       ![t152](asset2/t152.png)
+       ![t153](asset2/t153.png)
      
      ```ini
      server {
@@ -880,6 +962,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      ```
      
      - roles/pma/handlers/main.yml akan berisi:
+       ![t154](asset2/t154.png)
+       ![t155](asset2/t155.png)
      
      ```yaml
        ---
@@ -904,14 +988,26 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      ```
      
      - Jalankan perintah:
+       ![t156](asset2/t156.png)
      
      ```bash
      cd ~/ansible/modul2-ansible
      ansible-playbook -i hosts install-mariadb.yml -k
      ```
+       ![t157](asset2/t157.png)
      
      - edit /etc/nginx/sites-available/vm.local menjadi:
-     
+        ![t158](asset2/t158.png)
+        
+        Before
+        ![t159](asset2/t159.png)
+
+        After
+        ![t160](asset2/t160.png)
+        ![t161](asset2/t161.png)
+        
+        
+
      ```ini
         server {
              listen 80;
@@ -946,10 +1042,11 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      ```
      
      - coba akses vm.local/phpmyadmin/:
+
+       ![t162](asset2/t162.png)
+       ![t163](asset2/t163.png)
+       ![t164](asset2/t164.png)
      
-     ![phpmyadmin-login](assets/phpmyadmin-login.png)
-     
-     ![phpmyadmin-logined](assets/phpmyadmin-logined.png)
    
 2. Install codeigniter pada lxc_php5.dev dengan beberapa requirement, yakni:
 
