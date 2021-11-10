@@ -114,6 +114,8 @@ Proses Set up autostart lxc yang belum tersetting
   ```bash
   sudo apt install ansible sshpass
   ```
+  
+  ![in1](asset2/in1.png)
 
 ## Getting started with Infrastructur as Code
 
@@ -124,26 +126,34 @@ Proses Set up autostart lxc yang belum tersetting
    ```bash
    mkdir -p ~/ansible/simple-playbook
    ```
+   ![c1](asset2/c1.png)
+   
 
 2. Pindah ke folder simple-playbook
 
    ```bash
    cd ~/ansible/simple-playbook
    ```
+   ![c2](asset2/c2.png)
 
 3. Buat file `hosts` sebagai vagrant inventory, dengan isi:
+   
+   ![c31](asset2/c31.png)
 
    ```bash
    ubuntu_landing ansible_host=lxc_landing.dev ansible_ssh_user=root ansible_become_pass=a
    debian_php5 ansible_host=lxc_php5.dev ansible_ssh_user=root ansible_become_pass=a
    ubuntu_php7 ansible_host=lxc_php7.dev ansible_ssh_user=root ansible_become_pass=a
    ```
+   
 
    Keterangan syntax:
 
    ```bash
    nama_host ansible_host=[IP/DOMAIN] ansible_ssh_user=[UserName] ansible_become_pass=[password user]
    ```
+   
+   ![c32](asset2/c32.png)
 
 4. Berikutnya jalankan perintah:
 
@@ -151,7 +161,6 @@ Proses Set up autostart lxc yang belum tersetting
    ansible -i hosts -m ping all -k
    ```
 
-   ![run-ansible-example](assets/run-ansible-example.png)
 
    Keterangan:
 
@@ -160,6 +169,9 @@ Proses Set up autostart lxc yang belum tersetting
    3. Parameter all digunakan untuk penanda ansible dijalankan di host mana. Parameter all bisa diganti dengan nama host.
    4. Parameter -k digunakan untuk menanyakan password login ssh
 
+   ![c41](asset2/c41.png)
+   ![c42](asset2/c42.png)
+
 ### Menjalankan shell command menggunakan ansible
 
 1. Jalankan perintah
@@ -167,8 +179,8 @@ Proses Set up autostart lxc yang belum tersetting
    ```bash
    ansible -i ./hosts -m shell -a 'uname -a' all -k
    ```
-
-   ![run-ansible-example-uname](assets/run-ansible-example-uname.png)
+   
+   ![s1](asset2/s1.png)
 
 ## Grouping Host
 
