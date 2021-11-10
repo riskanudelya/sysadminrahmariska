@@ -350,7 +350,15 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      
      sudo lxc-start -n lxc_mariadb
      ```
-
+    ![t1](asset2/t1.png)
+    
+    Maka lakukan lagi dengan memberi perintah sudo dan cek list lxc kembali
+    ![t12](asset2/t12.png)
+    
+    Start lxc mariadb
+    ![t13](asset2/t13.png)
+    
+    
    - Set IP static lxc_mariadb 10.0.3.200
 
      ```bash
@@ -358,12 +366,30 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      apt update; apt upgrade -y; apt install -y nano
      ```
 
-     ![setting-ip-static-lxc-mariadb](assets/setting-ip-static-lxc-mariadb.png)
+     ![t14](asset2/t14.png)
+     
+     Tunggu proses
+     ![t15](asset2/t15.png)
+     
+     Cek ulang
+     ![t16](asset2/t16.png)
 
+     `nano /etc/netplan/10-lxc.yml`
+     ![t17](asset2/t17.png)
+     
+     tampilan sebelumnya...
+     ![t18](asset2/t18.png)
+     
+     tampilan sesudah diedit...
+     ![t19](asset2/t19.png)
+     
      ```bash
      netplan apply
      ```
-
+     
+     ![t110](asset2/t110.png)
+     
+     
    - Konfigurasi ssh server untuk lxc_mariadb
 
      ```bash
@@ -378,12 +404,28 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      service sshd restart
      ```
 
+    ![t111](asset2/t111.png)
+    
+    Tunggu proses
+    ![t112](asset2/t112.png)
+
+    ![t113](asset2/t113.png)
+    
+    ![t114](asset2/t114.png) 
+    
+    ![t115](asset2/t115.png)
+
    - Set password lxc_mariadb
 
      ```bash
      passwd
      ```
-
+     
+     ps100
+     
+     ![t116](asset2/t116.png)
+     
+     
    - Setting autostart lxc_mariadb
 
      ```bash
@@ -392,6 +434,13 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
      cd /var/lib/lxc/lxc_mariadb
      nano config
      ```
+     
+     Exit dan save yes
+     ![t117](asset2/t117.png)
+
+     ![t118](asset2/t118.png)
+     
+
 
    - Jangan lupa dibackup dulu :)
 
