@@ -1182,7 +1182,7 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
        ```ini
        server {
-         listen 80;`
+         listen 80;
          server_name {{servername}};
          root {{ destdir }};
          index index.php;
