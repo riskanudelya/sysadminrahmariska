@@ -186,6 +186,8 @@ Proses Set up autostart lxc yang belum tersetting
 
 1. Buka file `hosts` dan tambahkan nama group. Contoh nama groupnya adalah php5 dan php7
 
+   ![g1](asset2/g1.png)
+
    ```bash
    [php5]
    ubuntu_landing ansible_host=lxc_landing.dev ansible_ssh_user=root ansible_become_pass=a
@@ -194,9 +196,13 @@ Proses Set up autostart lxc yang belum tersetting
    [php7]
    ubuntu_php7 ansible_host=lxc_php7.dev ansible_ssh_user=root ansible_become_pass=a
    ```
-
+   
+   ![g12](asset2/g12.png)
+   
 2. Buat file `install-lynx.yml` dengan isi sebagai berikut
-
+   
+   ![g2](asset2/g2.png)
+   
    ```yaml
    - hosts: php5
      tasks:
@@ -207,23 +213,29 @@ Proses Set up autostart lxc yang belum tersetting
            - lynx
    ```
 
+   ![g22](asset2/g22.png)
+    
    
-
 3. Jalankan Perintah
 
    ```bash
     ansible-playbook -i hosts install-lynx.yml -k
    ```
-
+   ![g3](asset2/g3.png)
+   
 4. Hasil
 
-   ![ansible-install-lynx-result](assets/ansible-install-lynx-result.png)
+   ![g4](asset2/g4.png)
+   
+   hasil memastikan kembali 
+   
+   ![g42](asset2/g42.png)
 
 5. Cek ke lxc group php5, apakah sudah terinstall
 
-   ![lynx-check](assets/lynx-check.png)
+   ![g5](asset2/g5.png)
 
-   ![lynx-checkv2](assets/lynx-checkv2.png)
+   ![g52](asset2/g52.png)
 
 ### Copy File
 
