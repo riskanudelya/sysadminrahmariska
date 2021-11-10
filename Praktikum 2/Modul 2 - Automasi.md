@@ -83,8 +83,11 @@ Proses Set up autostart lxc yang belum tersetting
   ![pi8](asset2/pi8.png)
   
 - Lakukan configurasi ini pada semua lxc
+
   **Konfigurasi juga di landing dan Ubuntu_php7.4**
+  
 - ubuntu_landing
+
   ![pi91](asset2/pi91.png)
   ![pi92](asset2/pi92.png)
   ![pi93](asset2/pi93.png)
@@ -95,6 +98,7 @@ Proses Set up autostart lxc yang belum tersetting
 
 
 - |ubuntu_php7.4|
+
   ![pi98](asset2/pi98.png)
   ![pi99](asset2/pi99.png)
   ![pi910](asset2/pi910.png)
