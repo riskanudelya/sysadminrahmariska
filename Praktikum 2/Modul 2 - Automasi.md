@@ -303,7 +303,8 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
     ![w3](asset2/w3.png)
     
 
-4.	# jangan lupa untuk mematikan auto start di config lxc backup
+4.	jangan lupa untuk mematikan auto start di config lxc backup
+
     - Debian
       ![w4](asset2/w4.png)
       ![w42](asset2/w42.png)
