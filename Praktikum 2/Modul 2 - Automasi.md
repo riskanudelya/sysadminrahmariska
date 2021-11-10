@@ -41,6 +41,7 @@ Proses Set up autostart lxc yang belum tersetting
   ```bash
   cd /etc/ssh
   nano sshd_config
+  
   ![pi41](asset2/pi41.png)
   
   # setting config menjadi
@@ -82,7 +83,7 @@ Proses Set up autostart lxc yang belum tersetting
   ![pi8](asset2/pi8.png)
   
 - Lakukan configurasi ini pada semua lxc
-- |Konfigurasi juga di landing dan Ubuntu_php7.4|
+- **Konfigurasi juga di landing dan Ubuntu_php7.4
 - ubuntu_landing
   ![pi91](asset2/pi91.png)
   ![pi92](asset2/pi92.png)
