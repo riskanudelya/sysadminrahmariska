@@ -7,33 +7,47 @@
 Ansible adalah sebuah provisioning tool yang dikembangkan oleh  RedHat. Dimana kamu dapat mencatat setiap proses deployment ataupun  konfigurasi yang biasa dilakukan berulang - ulang terhadap beberapa  server. Misal saat pertama kali kita memasang Ubuntu Server di 10 mesin, maka kita akan melakuan apt-get update serta memasang beberapa komponen seperti PHP5 dan Apache2. Sebenarnya tidak akan menjadi masalah, bila  kita hanya melakukan sedikit hal. Tapi bayangkan bila harus melakukan  konfigurasi yang cukup kompleks dan dilakukan secara berulang - ulang ke 10 mesin tersebut.
 
 ## Pra - Instalasi
+### Proses Set up autostart lxc yang belum tersetting
+### 1. debian_php5.6
+![p1](asset2/p1.png)
+
+Tambahkan auto start = 1
+![p2](asset2/p2.png)
+
+Berhasil tersetting autostart
+![p3](asset2/p3.png)
 
 - Setup semua lxc menjadi autostart ketika vm dinyalakan
 
-  ![lxc-autostart-all](assets/lxc-autostart-all.png)
+  ![pi1](asset2/pi1.png)
 
 - Masuk ke LXC
 
   ```bash
   sudo lxc-attach -n debian_php5.6
   ```
+  ![pi21](asset2/pi21.png)
+  ![pi22](asset2/pi22.png)
 
 - Install openssh-server & python
 
   ```bash
   sudo apt install openssh-server python
   ```
-
+  ![pi3](asset2/pi3.png)
+  
 - Config ssh untuk enable root user
 
   ```bash
   cd /etc/ssh
   nano sshd_config
+  ![pi41](asset2/pi41.png)
   
   # setting config menjadi
   PermitRootLogin yes
   RSAAuthentication yes
   ```
+  ![pi42](asset2/pi42.png)
 
   ![sshd_config](assets/sshd_config.png)
 
@@ -42,13 +56,14 @@ Ansible adalah sebuah provisioning tool yang dikembangkan oleh  RedHat. Dimana k
   ```bash
   sudo service sshd restart
   ```
-
 - Setting password root
 
   ```bash
   passwd
   ```
-
+  ps>100
+  ![pi56](asset2/pi56.png)
+  
 - Akses LXC melalui SSH
 
   ```bash
@@ -56,8 +71,7 @@ Ansible adalah sebuah provisioning tool yang dikembangkan oleh  RedHat. Dimana k
   
   ssh root@lxc_php5.dev
   ```
-
-  ![ssh-example](assets/ssh-example.png)
+  ![pi7](asset2/pi7.png)
 
 - Keluar dari ssh
 
@@ -66,8 +80,28 @@ Ansible adalah sebuah provisioning tool yang dikembangkan oleh  RedHat. Dimana k
   # atau menulis command
   exit
   ```
+  ![pi8](asset2/pi8.png)
   
 - Lakukan configurasi ini pada semua lxc
+- |Konfigurasi juga di landing dan Ubuntu_php7.4|
+- ubuntu_landing
+![pi91](asset2/pi91.png)
+![pi92](asset2/pi92.png)
+![pi93](asset2/pi93.png)
+![pi94](asset2/pi94.png)
+![pi95](asset2/pi95.png)
+![pi96](asset2/pi96.png)
+![pi97](asset2/pi97.png)
+
+
+- |ubuntu_php7.4|
+![pi98](asset2/pi98.png)
+![pi99](asset2/pi99.png)
+![pi910](asset2/pi910.png)
+![pi911](asset2/pi911.png)
+![pi912](asset2/pi912.png)
+![pi913](asset2/pi913.png)
+
 
 ## Instalasi
 
