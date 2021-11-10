@@ -293,8 +293,48 @@ lxc-copy -n ubuntu_landing -N ubuntu_landing_backup -sKD
 
 # jangan lupa untuk mematikan auto start di config lxc backup
 ```
+1.	Cek terlebih dahulu lxc kita
+    ![w1](asset2/w1.png)
 
-![w63](asset2/w63.png)
+2.	Stop Ubuntu landing dan lxc lainnya sebelum melakukan backup
+ 	  ![w2](asset2/w2.png)
+
+3.	Kemudian backup lxc kali ini menggunakan –sKD
+    ![w3](asset2/w3.png)
+    
+
+4.	# jangan lupa untuk mematikan auto start di config lxc backup
+    - Debian
+      ![w4](asset2/w4.png)
+      ![w42](asset2/w42.png)
+    
+    - Landing
+      ![w43](asset2/w43.png)
+      ![w44](asset2/w44.png)
+      
+    - Ubuntu_php7.4
+      ![w45](asset2/w45.png)
+      ![w46](asset2/w46.png)
+    
+5.	Exit dan cek lxc list
+    ![w5](asset2/w5.png)
+   
+    Masuk kembali ke server
+    ![w52](asset2/w52.png)
+
+    Cek lxc list untuk memastikan autostart pada lxc backup telah nonaktifkan 
+    ![w53](asset2/w53.png)
+
+6.	#steps boleh dilewati
+    Untuk cek autostart berjalan maka reboot server Ubuntu
+    Masuk kembali ke server 
+    ![w6](asset2/w6.png)
+    
+    Cek lxc list
+    ![w62](asset2/w62.png)
+    
+    #sudah sama dengan modul
+    ![w63](asset2/w63.png)
 
 ## Soal Latihan Praktikum (*DIWYOR*)
 
