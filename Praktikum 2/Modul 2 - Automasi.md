@@ -97,7 +97,7 @@ Proses Set up autostart lxc yang belum tersetting
   ![pi97](asset2/pi97.png)
 
 
-- |ubuntu_php7.4|
+- ubuntu_php7.4
 
   ![pi98](asset2/pi98.png)
   ![pi99](asset2/pi99.png)
