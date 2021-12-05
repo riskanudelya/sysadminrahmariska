@@ -1,0 +1,5 @@
+- hosts: landing
+  vars:
+    domain: lxc_landing.dev
+  roles:
+    - { role: laravel }
