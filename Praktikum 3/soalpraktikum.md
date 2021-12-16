@@ -257,8 +257,7 @@ sudo apt install bind9
 			ipconfig/all
 			```
 			
-			
-			![](assets/cmd-dns.png)
+			![cmd](assets/cmd-dns.png)
 			
 		+ jika tidak bisa akes vm.local, silahkan kembali ke adapter wifi, dan uncheck internet protocol version (TCP/IPv6)
 
