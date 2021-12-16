@@ -129,14 +129,14 @@ sudo apt install bind9
 		```bash
 		sudo cp /etc/bind/db.local /etc/bind/vm/0.168.192.in-addr.arpa
 		```
-		![](asset3/edijarkom1.png)
+		![](asset3/editjarkom1.png)
 		
 		*Keterangan 10.20.172 adalah 3 byte pertama IP VM yang dibalik urutan penulisannya*
 	- Edit file 10.20.172.in-addr.arpa menjadi seperti gambar di bawah ini
 		```bash
 		sudo nano /etc/bind/vm/0.168.192.in-addr.arpa
 		```
-		![](asset3/edijarkom2.png)
+		![](asset3/editjarkom2.png)
 		
 		```bash
 		;
