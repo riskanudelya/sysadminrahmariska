@@ -256,7 +256,10 @@ sudo apt install bind9
 			```ps
 			ipconfig/all
 			```
+			
+			
 			![](assets/cmd-dns.png)
+			
 		+ jika tidak bisa akes vm.local, silahkan kembali ke adapter wifi, dan uncheck internet protocol version (TCP/IPv6)
 
 ### References
