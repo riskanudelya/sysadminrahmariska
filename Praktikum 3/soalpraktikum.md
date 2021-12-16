@@ -364,8 +364,10 @@ sudo apt install bind9
   notify:
     - restart bind
 ```
-     ![langkah2](asset3/l21.png)
+
 ---
+![langkah2](asset3/l21.png)
+
 
 ### cd roles/lv/handlers/main.yml
 ```bash
@@ -390,8 +392,9 @@ sudo apt install bind9
 	
 ```
 
-    ![langkah2](asset3/l22.png)
----	
+---
+![langkah2](asset3/l22.png)
+	
 	
 ### cd roles/lv/templates/named.conf.local
 ```bash
@@ -414,9 +417,9 @@ zone "0.168.192.in-addr.arpa" {
 };
 	
 ```
-    ![langkah2](asset3/l23.png)
+    
 ---	
-	
+![langkah2](asset3/l23.png)	
 	
 ### cd roles/lv/templates/vm.local
 ```bash
@@ -437,9 +440,9 @@ dev     IN      CNAME   vm.local.
 
 	
 ```
-    ![langkah2](asset3/l24.png)
+    
 ---
-
+![langkah2](asset3/l24.png)
 
 ### cd roles/lv/templates/0.168.192.in-addr.arpa
 ```bash
@@ -458,9 +461,9 @@ $TTL    604800
 100                      IN      PTR     vm.local. ; byte ke 4 IP VM
 	
 ```
-    ![langkah2](asset3/l25.png)
+    
 ---	
-	
+![langkah2](asset3/l25.png)	
 	
 ### cd roles/lv/templates/resolv.conf
 ```bash
@@ -485,9 +488,10 @@ $TTL    604800
 
 nameserver 192.168.0.100
 ```
-    
-    ![langkah2](asset3/l26.png)
+ 
 ---	
+![langkah2](asset3/l26.png)	
+	
 	
 	
 ### cd roles/lv/templates/named.conf.options
@@ -519,8 +523,9 @@ options {
 };
 
 ```
-    ![langkah2](asset3/l27.png)
+    
 ---	
+![langkah2](asset3/l27.png)
 
 	
 3. Jalankan perintah `ansible-playbook -i hosts setting-landing.yml -k`
