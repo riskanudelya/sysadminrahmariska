@@ -253,11 +253,12 @@ sudo apt install bind9
 		+ coba akses google.com dengan browser kesayangan anda
 			![](asset3/success-google.png)
 		+ cek dns dengan cmd di windows
+			
 			```ps
 			ipconfig/all
 			```
 			
-			![cmd](assets/cmd-dns.png)
+			![cmd](asset3/cmd-dns.png)
 			
 		+ jika tidak bisa akes vm.local, silahkan kembali ke adapter wifi, dan uncheck internet protocol version (TCP/IPv6)
 
