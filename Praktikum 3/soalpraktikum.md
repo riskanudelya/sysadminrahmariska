@@ -33,7 +33,7 @@ Adalah informasi yang dimiliki oleh suatu DNS zone.
 ### Latihan
 #### Persiapan Konfigurasi
 1. Hapus hosts vm.local dari hostfile windows
-	![host windows](assets3/edithosts.png)
+	![host windows](asset3/edithosts.png)
 2. Buka Ubuntu VM, pastikan network menggunakan bridge network
 3. Tambahkan konfigurasi nginx untuk virtual hosts vm.local
 	![Nginx VM local](assets/nginx-vm.local.png)
