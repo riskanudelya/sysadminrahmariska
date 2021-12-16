@@ -304,8 +304,8 @@ sudo apt install bind9
 	![langkah1](asset3/l1.png)
 	
 2. Setting masing-masing roles :
-	**cd roles/lv/tasks/main.yml**
-	```bash
+### cd roles/lv/tasks/main.yml
+```bash
 ---
 - name: delete apt chache
   become: yes
@@ -363,14 +363,12 @@ sudo apt install bind9
     dest=/var/www/html/dev/landing
   notify:
     - restart bind
-
-	```
-	
-![langkah2](asset3/l21.png)
+```
+     ![langkah2](asset3/l21.png)
 ---
 
-	**cd roles/lv/handlers/main.yml**
-	```bash
+### cd roles/lv/handlers/main.yml
+```bash
 ---
 - name: restart nginx
   become: yes
@@ -390,12 +388,13 @@ sudo apt install bind9
   become_method: su
   action: service name=bind9 state=restarted
 	
-	```
-![langkah2](asset3/l22.png)
+```
+
+    ![langkah2](asset3/l22.png)
 ---	
 	
-	**cd roles/lv/templates/named.conf.local**
-	```bash
+### cd roles/lv/templates/named.conf.local
+```bash
 //
 // Do any local configuration here
 //
@@ -414,13 +413,13 @@ zone "0.168.192.in-addr.arpa" {
         file "/etc/bind/vm/0.168.192.in-addr.arpa";
 };
 	
-	```
-![langkah2](asset3/l23.png)
+```
+    ![langkah2](asset3/l23.png)
 ---	
 	
 	
-	**cd roles/lv/templates/vm.local**
-	```bash
+### cd roles/lv/templates/vm.local
+```bash
 ;
 ; BIND data file for local loopback interface
 ;
@@ -437,13 +436,13 @@ $TTL    604800
 dev     IN      CNAME   vm.local.
 
 	
-	```
-![langkah2](asset3/l24.png)
+```
+    ![langkah2](asset3/l24.png)
 ---
 
 
-	**cd roles/lv/templates/0.168.192.in-addr.arpa**
-	```bash
+### cd roles/lv/templates/0.168.192.in-addr.arpa
+```bash
 ;
 ; BIND data file for local loopback interface
 ;
@@ -458,13 +457,13 @@ $TTL    604800
 0.168.192.in-addr.arpa.  IN      NS      vm.local. ; IP VM dibalik tanpa byte ke 4
 100                      IN      PTR     vm.local. ; byte ke 4 IP VM
 	
-	```
-![langkah2](asset3/l25.png)
+```
+    ![langkah2](asset3/l25.png)
 ---	
 	
 	
-	**cd roles/lv/templates/resolv.conf**
-	```bash
+### cd roles/lv/templates/resolv.conf
+```bash
 #This file is managed by man:systemd-resolved(8). Do not edit.
 #
 #This is a dynamic resolv.conf file for connecting local clients to the
@@ -485,14 +484,14 @@ $TTL    604800
 #options edns0 trust-ad
 
 nameserver 192.168.0.100
-
-	```
-![langkah2](asset3/l26.png)
+```
+    
+    ![langkah2](asset3/l26.png)
 ---	
 	
 	
-	**cd roles/lv/templates/named.conf.options**
-	```bash
+### cd roles/lv/templates/named.conf.options
+```bash
 options {
         directory "/var/cache/bind";
 
@@ -519,16 +518,19 @@ options {
         listen-on-v6 { any; };
 };
 
-	```
-![langkah2](asset3/l27.png)
+```
+    ![langkah2](asset3/l27.png)
 ---	
 
 	
 3. Jalankan perintah `ansible-playbook -i hosts setting-landing.yml -k`
+
    ![langkah3](asset3/l3.png)
 	
 4. Masuk ke `/etc/hosts` dan tambahkan server `dev.vm.local`
+
    ![langkah4](asset3/l4.png)
+   
    ![langkah4](asset3/l42.png)
    
    
@@ -563,6 +565,7 @@ options {
 	```
 
 8. Ganti DNS di Control Panel
+
    ![langkah8](asset3/l8.png)
    
 9. Hasil Running di browser
