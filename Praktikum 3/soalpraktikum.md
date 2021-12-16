@@ -1,10 +1,17 @@
+---
+# Kelompok 7
+# Rahmadina Oktaviana (1202190016)
+# Riska Aprilia (1202190007)
+# System Administrasi Server Modul dan Praktikum 3
+---
+
 # Modul 3 - DNS, & Load Balancer
 
 ## DNS (*Domain Name Server*)
 ### Pengertian
 DNS (Domain Name System) adalah sistem penamaan untuk semua device (smartphone, computer, atau network) yang terhubung dengan internet. DNS Server berfungsi menerjemahkan nama domain menjadi alamat IP. DNS dibuat guna untuk menggantikan sistem penggunaan file host yang dirasa tidak efisien.
 ### Cara Kerja
-![Cara Kerja DNS](assets/cara-kerja.jpg)
+![Cara Kerja DNS](assets/cara-kerja.png)
 Client akan meminta alamt IP dari suatu domain ke DNS server. Jika pada DNS server data alamat IP dari DNS server tersebut ada maka akan di return alamat IP nya kembali menuju client. Jika DNS server tersebut tidak memiliki alamat IP dari domain tersebut maka dia akan bertanya kepada DNS server yang lain sampai alamat domain itu ditemukan.	
 ### Aplikasi DNS Server
 aplikasi BIND9 sebagai DNS server, karena BIND(Berkley Internet Naming Daemon) adalah DNS server yang paling banyak digunakan dan juga memiliki fitur-fitur yang cukup lengkap.
