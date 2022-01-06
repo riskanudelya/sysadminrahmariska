@@ -12,7 +12,7 @@ Nama Anggota :
 - Maka Step berikutnya yaitu melakukan konfigurasi yang sama terhadap ubuntu php7.4 dan debian_php5.6 yang akan dilaporkan sebagai berikut :
 
 ### Load Balancing
-1. Siapkan LXC untuk landing
+1. Siapkan LXC untuk ubuntu7.4
 	* Clone LXC ubuntu_php7.4 menjadi ubuntu_php7.4_2 dan ubuntu_php7.4_3
 	
 		```sh
@@ -167,14 +167,120 @@ Nama Anggota :
 		
 		![14](assets/14.png)
 		
-		exit dari ubuntu_landing_3
+		exit dari ubuntu_php7.4_3
 		
 		```sh
 		exit
 		```
 		![15](assets/15.png)
 		
-2. Setup Nginx
+2. Siapkan LXC untuk debian_php5.6
+	* Clone LXC debian_php5.6 menjadi debian_php5.6_2 dan debian_php5.6_3
+	
+		```sh
+		sudo lxc-stop -n debian_php5.6
+		sudo lxc-copy -n debian_php5.6 -N debian_php5.6_2 -sKD
+		sudo lxc-copy -n debian_php5.6 -N debian_php5.6_3 -sKD
+		```
+		
+		![16](16.png)
+		
+	* Start LXC 
+	
+		```sh
+		sudo lxc-start -n debian_php5.6
+		sudo lxc-start -n debian_php5.6_2
+		sudo lxc-start -n debian_php5.6_3
+		```
+		
+		![17](assets/17.png)
+		![18](assets/18.png)
+		
+	* Masuk ke lxc debian_php5.6_2
+	
+		```sh
+		sudo lxc-attach -n debian_php5.6_2
+		```
+		
+	* Configurasi IP dan nginx debian_php5.6_2
+	
+		```sh
+		nano /etc/network/interfaces
+		```
+		
+		![19](assets/19.png)
+		
+		ganti ip menjadi 10.0.3.112
+		
+		![20](assets/20.png)
+		
+		
+		Daftarkan domain lxc_php5_2.dev di hosts file
+		
+		```sh
+		nano /etc/hosts
+		```
+		
+		![20](assets/20.png)
+		
+		Konfigurasi nginx untuk lxc_php5.6_2.dev
+		
+		```sh
+		nano /etc/nginx/sites-available/lxc_php5.dev
+		```
+		
+		![21](assets/21.png)
+		
+				
+		keluar dari debian_php5.6_2
+		
+		```sh
+		exit
+		```
+		
+		![22](assets/22.png)
+		
+	* Masuk ke lxc debian_php5.6_3
+	
+		```sh
+		sudo lxc-attach -n debian_php5.6_3
+		```
+		
+	* Configurasi IP dan nginx debian_php5.6_3
+	
+		```sh
+		nano /etc/network/interfaces
+		```
+		
+		![23](assets/23.png)
+		
+		ganti ip menjadi 10.0.3.122
+		
+		![24](assets/24.png)
+		
+			
+		Daftarkan domain lxc_php5_3.dev di hosts file
+		
+		```sh
+		nano /etc/hosts
+		```
+		
+		![25](assets/25.png)
+		
+		Konfigurasi nginx untuk lxc_php5.6_3.dev
+		
+		```sh
+		nano /etc/nginx/sites-available/lxc_php5.dev
+		```
+		
+		![26](assets/26.png)
+		
+		exit dari debian_php5.6_3
+		
+		```sh
+		exit
+		```
+		![27](assets/27.png)
 
 	![16](assets/16.png)
 	![17](assets/17.png)
@@ -189,6 +295,8 @@ Nama Anggota :
 	![26](assets/26.png)
 	![27](assets/27.png)
 	![28](assets/28.png)
+	
+	* etc host
 	![29](assets/29.png)
 	![](assets/30.png)
 	![](assets/31.png)
