@@ -9,7 +9,7 @@ Nama Anggota :
 
 ## Soal Modul 4
 - Pada latihan kita sudah melakukan konfigurasi pada ubuntu_landing
-- Maka Step berikutnya yaitu konfigurasi pada ubuntu php7.4 dan debian_php5.6 yang akan dilaporkan sebagai berikut :
+- Maka Step berikutnya yaitu melakukan konfigurasi yang sama terhadap ubuntu php7.4 dan debian_php5.6 yang akan dilaporkan sebagai berikut :
 
 ### Load Balancing
 1. Siapkan LXC untuk landing
