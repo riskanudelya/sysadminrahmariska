@@ -221,7 +221,7 @@ Nama Anggota :
 		nano /etc/hosts
 		```
 		
-		![20](assets/20.png)
+		![21](assets/21.png)
 		
 		Konfigurasi nginx untuk lxc_php5.6_2.dev
 		
@@ -229,7 +229,7 @@ Nama Anggota :
 		nano /etc/nginx/sites-available/lxc_php5.dev
 		```
 		
-		![21](assets/21.png)
+		![22](assets/22.png)
 		
 				
 		keluar dari debian_php5.6_2
@@ -238,7 +238,7 @@ Nama Anggota :
 		exit
 		```
 		
-		![22](assets/22.png)
+		![23](assets/23.png)
 		
 	* Masuk ke lxc debian_php5.6_3
 	
@@ -252,11 +252,11 @@ Nama Anggota :
 		nano /etc/network/interfaces
 		```
 		
-		![23](assets/23.png)
+		![24](assets/24.png)
 		
 		ganti ip menjadi 10.0.3.122
 		
-		![24](assets/24.png)
+		![25](assets/25.png)
 		
 			
 		Daftarkan domain lxc_php5_3.dev di hosts file
@@ -265,7 +265,7 @@ Nama Anggota :
 		nano /etc/hosts
 		```
 		
-		![25](assets/25.png)
+		![26](assets/26.png)
 		
 		Konfigurasi nginx untuk lxc_php5.6_3.dev
 		
@@ -273,14 +273,14 @@ Nama Anggota :
 		nano /etc/nginx/sites-available/lxc_php5.dev
 		```
 		
-		![26](assets/26.png)
+		![27](assets/27.png)
 		
 		exit dari debian_php5.6_3
 		
 		```sh
 		exit
 		```
-		![27](assets/27.png)
+		![28](assets/28.png)
 
 	![16](assets/16.png)
 	![17](assets/17.png)
