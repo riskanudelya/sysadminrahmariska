@@ -5,7 +5,14 @@ Nama Anggota :
 1. Rahmadina Oktaviana (1202190016)
 2. Riska Aprilia (1202190007)
 ---
+## Soal Praktikum
+1. Terapkan loadbalancer untuk /blog dan /app dengan ketentuan
+	1. /blog menggunakan least_conn
+	2. /app menggunakan ip hash
+	3. disarakan menggunakan ansible untuk instalasi
+2. Gunakan apache Jmeter untuk menganalisa perbedaan antara /, /app, /blog dengan loadbalancer dan tanpa loadbalancer pada traffic 50, 100 dan 150 users. Analisa dari segi waktu saja. Tulis langkah testing dan analisa dengan bahasa sendiri.
 
+---
 
 ## Soal Modul 4
 - Pada latihan kita sudah melakukan konfigurasi pada ubuntu_landing
@@ -283,6 +290,7 @@ Nama Anggota :
 		![28](assets/28.png)
 
 	* etc host
+
 	![29](assets/29.png)
 	![](assets/30.png)
 	![](assets/31.png)
@@ -331,86 +339,4 @@ Nama Anggota :
 	![](assets/62.png)
 	![](assets/63.png)
 	
-	
-## Soal Praktikum
-1. Terapkan loadbalancer untuk /blog dan /app dengan ketentuan
-	1. /blog menggunakan least_conn
-	2. /app menggunakan ip hash
-	3. disarakan menggunakan ansible untuk instalasi
-2. Gunakan apache Jmeter untuk menganalisa perbedaan antara /, /app, /blog dengan loadbalancer dan tanpa loadbalancer pada traffic 50, 100 dan 150 users. Analisa dari segi waktu saja. Tulis langkah testing dan analisa dengan bahasa sendiri.
-
-## Referensi
-1. http://nginx.org/en/docs/http/load_balancing.html
-2. https://jmeter.apache.org/
-3. http://coding4ever.net/blog/2015/10/20/performance-test-menggunakan-jmeter/
-4. https://www.youtube.com/watch?v=mXGcBvWYl-U
-5. https://medium.com/doku-insight/jmeter-87cccc713733
-
-
-
-
-/**
-![lxc-clone result](assets/lxc-clone.png)
-![1](assets/1.png)
-![2](assets/2.png)
-![3](assets/3.png)
-![4](assets/4.png)
-![5](assets/5.png)
-![6](assets/6.png)
-![7](assets/7.png)
-![8](assets/8.png)
-![9](assets/9.png)
-![10](assets/10.png)
-![11](assets/11.png)
-![12](assets/12.png)
-![13](assets/13.png)
-![14](assets/14.png)
-![15](assets/15.png)
-![16](assets/16.png)
-![17](assets/17.png)
-![18](assets/18.png)
-![19](assets/19.png)
-![20](assets/20.png)
-![21](assets/21.png)
-![22](assets/22.png)
-![23](assets/23.png)
-![24](assets/24.png)
-![25](assets/25.png)
-![26](assets/26.png)
-![27](assets/27.png)
-![28](assets/28.png)
-![29](assets/29.png)
-![](assets/30.png)
-![](assets/31.png)
-![](assets/32.png)
-![](assets/33.png)
-![](assets/34.png)
-![](assets/35.png)
-![](assets/36.png)
-![](assets/37.png)
-![](assets/38.png)
-![](assets/39.png)
-![](assets/40.png)
-![](assets/41.png)
-![](assets/42.png)
-![](assets/43.png)
-![](assets/44.png)
-![](assets/45.png)
-![](assets/46.png)
-![](assets/47.png)
-![](assets/48.png)
-![](assets/49.png)
-![](assets/50.png)
-![](assets/51.png)
-![](assets/52.png)
-![](assets/53.png)
-![](assets/54.png)
-![](assets/55.png)
-![](assets/56.png)
-![](assets/57.png)
-![](assets/58.png)
-![](assets/59.png)
-![](assets/60.png)
-![](assets/61.png)
-![](assets/62.png)
-![](assets/63.png)**/
+## Analisys
