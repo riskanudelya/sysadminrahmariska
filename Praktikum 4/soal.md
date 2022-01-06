@@ -1,133 +1,15 @@
 # Modul 4 - Web Server, Load Balancing dan uji performansi
 
-## Dasar Teori
-
-### Web Server
-Web Server adalah perangkat yang menyediakan layanan akses kepada pengguna melalui protokol HTTP atau HTTPS melalui aplikasi web.
-
-### Load balancing
-Load balancing adalah suatu mekanisme penyeimbangan beban yang bekerja dengan cara membagi beban pekerjaan. Load balancer adalah aplikasi atau alat yang bertugas untuk melakukan load balancing . Load balancer dapat meggunakan berbagai macam algoritma load balancing yang bertujuan untuk membagi beban pekerjaan seadil-adilnya. Minimal arsitektur load balancing adalah sebagai berikut:
-
-![loadbalancing](assets/loadbalancing.png)
-
-#### Kenapa dibutuhkan load balancing?
-Untuk menangani banyaknya pengguna yang mengakses layanan pada satu waktu dan menjaga layanan tetap tersedia setiap saat, dibutuhkan lebih dari satu komputer untuk memasang layanannya. Dengan layanan yang tersedia di banyak server, dibutuhkan mekanisme pembagian beban untuk memberikan beban yang seimbang pada setiap server. Dengan meletakkan layanan pada beberapa server dan pembagian beban yang optimal, setiap permintaan pengguna bisa ditangani dengan efisien.
-
-#### Nginx Load Balancing
-Load Balancing di beberapa instans aplikasi adalah teknik yang umum digunakan untuk mengoptimalkan pemanfaatan sumber daya, memaksimalkan throughput, mengurangi latensi, dan memastikan konfigurasi yang toleran terhadap kesalahan.
-
-Dimungkinkan untuk menggunakan nginx sebagai Load Balancer HTTP yang sangat efisien untuk mendistribusikan lalu lintas ke beberapa server aplikasi dan untuk meningkatkan kinerja, skalabilitas, dan keandalan aplikasi web dengan nginx.
-
-Mekanisme (atau metode) Load Balancing berikut didukung di nginx:
-1. Round Robin
-
-	permintaan ke server aplikasi didistribusikan secara round-robin
-	
-	```sh
-	http {
-	    upstream myapp1 {
-	        server srv1.example.com;
-	        server srv2.example.com;
-	        server srv3.example.com;
-	    }
-	
-	    server {
-	        listen 80;
-	
-	        location / {
-	            proxy_pass http://myapp1;
-	        }
-	    }
-	}
-	```
-
-2. Least Connection
-
-	permintaan berikutnya diberikan ke server dengan jumlah koneksi aktif paling sedikit
-	
-	```sh
-	http {
-	    upstream myapp1 {
-	    	least_conn;
-	        server srv1.example.com;
-	        server srv2.example.com;
-	        server srv3.example.com;
-	    }
-	
-	    server {
-	        listen 80;
-	
-	        location / {
-	            proxy_pass http://myapp1;
-	        }
-	    }
-	}
-	```
-
-3. Ip Hash
-
-	fungsi hash digunakan untuk menentukan server apa yang harus dipilih untuk permintaan berikutnya (berdasarkan alamat IP klien).
-	```sh
-	http {
-	    upstream myapp1 {
-	    	ip_hash;
-	        server srv1.example.com;
-	        server srv2.example.com;
-	        server srv3.example.com;
-	    }
-	
-	    server {
-	        listen 80;
-	
-	        location / {
-	            proxy_pass http://myapp1;
-	        }
-	    }
-	}
-	```
-
-4. Weighted Load Balancing
-
-	Hal ini juga memungkinkan untuk mempengaruhi algoritma load balancing nginx lebih jauh dengan menggunakan bobot server.
-	
-	Dengan round-robin khususnya itu juga berarti distribusi permintaan yang kurang lebih sama di seluruh server — asalkan ada permintaan yang cukup, dan ketika permintaan diproses secara seragam dan diselesaikan dengan cukup cepat.
-	
-	Ketika parameter bobot ditentukan untuk server, bobot diperhitungkan sebagai bagian dari keputusan penyeimbangan beban.
+Kelompok 7
+Nama Anggota :
+1. Rahmadina Oktaviana (1202190016)
+2. Riska Aprilia (1202190007)
+---
 
 
-	```sh
-	http {
-	    upstream myapp1 {
-	        server srv1.example.com weight=3;
-	        server srv2.example.com;
-	        server srv3.example.com;
-	    }
-	
-	    server {
-	        listen 80;
-	
-	        location / {
-	            proxy_pass http://myapp1;
-	        }
-	    }
-	}
-	```
-
-### Uji Performansi
-pengujian kinerja didefinisikan sebagai jenis pengujian perangkat lunak untuk memastikan aplikasi perangkat lunak yang akan bekerja dengan baik di bawah beban kerja yang diharapkan.
-
-#### Load Testing
-teknik performance testing dengan mengukur respon sistem dalam berbagai load condition. Penelitian ini membantu menentukan bagaimana software berperilaku ketika beberapa user mengakses software secara bersamaan
-
-#### Stress Testing
-Stress testing juga dikenal sebagai pengujian daya tahan untuk menentukan batas, di mana sistem atau perangkat lunak atau perangkat keras rusak. Hal ini juga untuk memastikan sistem berjalan efektif meskipun dalam kondisi ekstrem
-
-### Apache JMeter
-![Logo Apahce Jmeter](assets/Apache-JMeter.jpg)
-
-Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java murni 100% yang dirancang untuk memuat perilaku fungsional pengujian dan mengukur kinerja. Ini pada awalnya dirancang untuk menguji Aplikasi Web tetapi sejak itu diperluas ke fungsi pengujian lainnya.
-
-## Latihan
+## Soal Modul 4
+- Pada latihan kita sudah melakukan konfigurasi pada ubuntu_landing
+- Maka Step berikutnya yaitu konfigurasi pada ubuntu php7.4 dan debian_php5.6 yang akan dilaporkan sebagai berikut :
 
 ### Load Balancing
 1. Siapkan LXC untuk landing
