@@ -65,7 +65,7 @@ Nama Anggota :
 		
 		![4](assets/4.png)
 		
-		Daftarkan domain lxc_landing_2.dev di hosts file
+		Daftarkan domain lxc_php7_2.dev di hosts file
 		
 		```sh
 		nano /etc/hosts
