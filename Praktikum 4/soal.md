@@ -366,7 +366,7 @@ Berikut perbandingan antara penggunaan load balancer dan tidak
 ![](assets/analisis2.PNG)
 
 Dari tabel perbandingan di atas dapat disimpulkan bahwa perbedaan antara /, /app, /blog dengan loadbalancer dan tanpa loadbalancer pada traffic 50, 100 dan 150 users dari segi waktu :
-- terdapat kestabilan pada traffic yang semakin tinggi dengan menggunakan loadbalancer maka semakin banyak pengguna yang mengakses website yaitu terjadi pada saat jmeter (setelah menambahkan stream pada vm.local) -> pada tabel terdapat pada bagian Average2 dan Troughput2 dengan traffic 150 users dimana akses web lebih cepat dan lebih banyak pengguna. 
+- terdapat kestabilan pada traffic yang semakin tinggi dengan menggunakan loadbalancer maka semakin banyak pengguna yang mengakses website yaitu terjadi pada saat jmeter (setelah konfigurasi loadbalancer menggunakan round robin (upstream) dan setting proxy pass pada vm.local) -> pada tabel terdapat pada bagian Average2 dan Troughput2 dengan traffic 150 users dimana akses web lebih cepat dan lebih banyak pengguna. 
 - Sedangkan pada percobaan jmeter yang pertama terdapat ketidakstabilan dimana yang tanpa loadbalancer lebih banyak pengguna yang mengakses dilihat dari segi troughputnya yaitu pada traffic 50 user
 
 Keterangan warna di tabel (berkaitan dengan pengguna yang mengakses persekon) :
