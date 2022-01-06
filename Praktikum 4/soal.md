@@ -144,9 +144,9 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 	* Start LXC 
 	
 		```sh
-		sudo lxc-start -n ubuntu_landing
-		sudo lxc-start -n ubuntu_landing_2
-		sudo lxc-start -n ubuntu_landing_3
+		sudo lxc-start -n ubuntu_php7.4
+		sudo lxc-start -n ubuntu_php7.4_2
+		sudo lxc-start -n ubuntu_php7.4_3
 		```
 		
 	* Masuk ke lxc ubuntu_landing_2
@@ -469,7 +469,7 @@ Menjalankan Test secara otomatis. Caranya :
 
 
 
-
+![lxc-clone result](assets/lxc-clone.png)
 ![1](assets/1.png)
 ![2](assets/2.png)
 ![3](assets/3.png)
