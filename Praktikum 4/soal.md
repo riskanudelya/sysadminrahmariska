@@ -282,20 +282,6 @@ Nama Anggota :
 		```
 		![28](assets/28.png)
 
-	![16](assets/16.png)
-	![17](assets/17.png)
-	![18](assets/18.png)
-	![19](assets/19.png)
-	![20](assets/20.png)
-	![21](assets/21.png)
-	![22](assets/22.png)
-	![23](assets/23.png)
-	![24](assets/24.png)
-	![25](assets/25.png)
-	![26](assets/26.png)
-	![27](assets/27.png)
-	![28](assets/28.png)
-	
 	* etc host
 	![29](assets/29.png)
 	![](assets/30.png)
@@ -363,7 +349,7 @@ Nama Anggota :
 
 
 
-
+/**
 ![lxc-clone result](assets/lxc-clone.png)
 ![1](assets/1.png)
 ![2](assets/2.png)
@@ -427,4 +413,4 @@ Nama Anggota :
 ![](assets/60.png)
 ![](assets/61.png)
 ![](assets/62.png)
-![](assets/63.png)
+![](assets/63.png)**/
