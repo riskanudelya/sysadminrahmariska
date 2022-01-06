@@ -147,7 +147,7 @@ Nama Anggota :
 		Konfigurasi nginx untuk lxc_php7_3.dev
 		
 		```sh
-		nano /etc/nginx/sites-available/lxc_php7_3.dev
+		nano /etc/nginx/sites-available/lxc_php7.dev
 		```
 		
 		![13](assets/13.png)
