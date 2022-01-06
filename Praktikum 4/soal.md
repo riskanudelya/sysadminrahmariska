@@ -363,7 +363,7 @@ Nama Anggota :
 ## Analisys
 
 Berikut perbandingan antara penggunaan load balancer dan tidak
-![](assets/analisis2.png)
+![](assets/analisis2.PNG)
 
 Dari tabel perbandingan di atas dapat disimpulkan bahwa perbedaan antara /, /app, /blog dengan loadbalancer dan tanpa loadbalancer pada traffic 50, 100 dan 150 users dari segi waktu :
 - terdapat kestabilan pada traffic yang semakin tinggi dengan menggunakan loadbalancer maka semakin banyak pengguna yang mengakses website yaitu terjadi pada saat jmeter (setelah menambahkan stream pada vm.local) -> pada tabel terdapat pada bagian Average2 dan Troughput2 dengan traffic 150 users dimana akses web lebih cepat dan lebih banyak pengguna. 
@@ -373,3 +373,6 @@ Keterangan warna di tabel (berkaitan dengan pengguna yang mengakses persekon)
 Warna merah : Sedikit
 Warna kuning : Sedang
 Warna hijau : Banyak
+
+
+~ Terima Kasih ~
