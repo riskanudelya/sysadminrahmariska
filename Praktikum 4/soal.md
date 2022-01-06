@@ -329,24 +329,37 @@ Nama Anggota :
 		![46](assets/46.png)
 		![47](assets/47.png)
 		
-	* Jalankan kembali jmeter
+		Ganti proxy_pass
+		
+		![](assets/48.png)
+		
+	* Jalankan kembali jmeter dan ulangi kembali untuk Ganti angka pada box (number of threads) dari menu `user access` menjadi `50, 100, 150` . 
 	
+	* number of threads `50`
 	
-	![](assets/48.png)
 	![](assets/49.png)
 	![](assets/50.png)
 	![](assets/51.png)
 	![](assets/52.png)
 	![](assets/53.png)
+	
+	* number of threads `100`
+
 	![](assets/54.png)
 	![](assets/55.png)
 	![](assets/56.png)
 	![](assets/57.png)
 	![](assets/58.png)
+	
+	* number of threads `150`
+
 	![](assets/59.png)
 	![](assets/60.png)
 	![](assets/61.png)
 	![](assets/62.png)
 	![](assets/63.png)
 	
+		
 ## Analisys
+
+
