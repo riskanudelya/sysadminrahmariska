@@ -183,7 +183,7 @@ Nama Anggota :
 		sudo lxc-copy -n debian_php5.6 -N debian_php5.6_3 -sKD
 		```
 		
-		![16](16.png)
+		![16](assets/16.png)
 		
 	* Start LXC 
 	
