@@ -369,10 +369,11 @@ Dari tabel perbandingan di atas dapat disimpulkan bahwa perbedaan antara /, /app
 - terdapat kestabilan pada traffic yang semakin tinggi dengan menggunakan loadbalancer maka semakin banyak pengguna yang mengakses website yaitu terjadi pada saat jmeter (setelah menambahkan stream pada vm.local) -> pada tabel terdapat pada bagian Average2 dan Troughput2 dengan traffic 150 users dimana akses web lebih cepat dan lebih banyak pengguna. 
 - Sedangkan pada percobaan jmeter yang pertama terdapat ketidakstabilan dimana yang tanpa loadbalancer lebih banyak pengguna yang mengakses dilihat dari segi troughputnya yaitu pada traffic 50 user
 
-Keterangan warna di tabel (berkaitan dengan pengguna yang mengakses persekon)
-Warna merah : Sedikit
-Warna kuning : Sedang
-Warna hijau : Banyak
+Keterangan warna di tabel (berkaitan dengan pengguna yang mengakses persekon) :
+
+- Warna merah : Sedikit
+- Warna kuning : Sedang
+- Warna hijau : Banyak
 
 
 ~ Terima Kasih ~
