@@ -320,13 +320,11 @@ Nama Anggota :
 	![44](assets/44.png)
 	![45](assets/45.png)
 
-	* Konfigurasi load balancer menggunakan round robin untuk halaman landing vm.local pada nginx
+	* Konfigurasi load balancer menggunakan round robin (upstream) untuk halaman landing, php5, dan php7 `vm.local` pada nginx
 	
 		```sh
 		sudo nano /etc/nginx/sites-available/vm.local
 		```
-		
-		
 		
 		![46](assets/46.png)
 		![47](assets/47.png)
