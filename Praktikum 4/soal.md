@@ -45,11 +45,11 @@ Nama Anggota :
 		nano /etc/netplan/10-lxc.yaml
 		```
 		
-		![1](assets/1.png)
+		![2](assets/2.png)
 		
 		ganti ip menjadi 10.0.3.111
 		
-		![2](assets/2.png)
+		![3](assets/3.png)
 		
 		terapkan konfigurasi netplan baru
 		
@@ -63,7 +63,7 @@ Nama Anggota :
 		ip addr show eth0
 		```
 		
-		![3](assets/3.png)
+		![4](assets/4.png)
 		
 		Daftarkan domain lxc_landing_2.dev di hosts file
 		
@@ -71,7 +71,7 @@ Nama Anggota :
 		nano /etc/hosts
 		```
 		
-		![4](assets/4.png)
+		![5](assets/5.png)
 		
 		Konfigurasi nginx untuk lxc_php7.4_2.dev
 		
@@ -79,7 +79,7 @@ Nama Anggota :
 		nano /etc/nginx/sites-available/lxc_php7.dev
 		```
 		
-		![5](assets/5.png)
+		![6](assets/6.png)
 		
 		Check configurasi nginx dan start nginx
 		
@@ -94,7 +94,7 @@ Nama Anggota :
 		curl -i http://lxc_php7_2.dev
 		```
 		
-		![6](assets/6.png)
+		![7](assets/7.png)
 		
 		keluar dari ubuntu_landing_2
 		
@@ -102,7 +102,7 @@ Nama Anggota :
 		exit
 		```
 		
-		![7](assets/7.png)
+		![8](assets/8.png)
 		
 	* Masuk ke lxc ubuntu_php7.4_3
 	
@@ -116,11 +116,11 @@ Nama Anggota :
 		nano /etc/netplan/10-lxc.yaml
 		```
 		
-		![8](assets/8.png)
+		![9](assets/9.png)
 		
 		ganti ip menjadi 10.0.3.121
 		
-		![9](assets/9.png)
+		![10](assets/10.png)
 		
 		terapkan konfigurasi netplan baru
 		
@@ -134,7 +134,7 @@ Nama Anggota :
 		ip addr show eth0
 		```
 		
-		![10](assets/10.png)
+		![11](assets/11.png)
 		
 		Daftarkan domain lxc_php7_3.dev di hosts file
 		
@@ -142,7 +142,7 @@ Nama Anggota :
 		nano /etc/hosts
 		```
 		
-		![11](assets/11.png)
+		![12](assets/12.png)
 		
 		Konfigurasi nginx untuk lxc_php7_3.dev
 		
@@ -150,7 +150,7 @@ Nama Anggota :
 		nano /etc/nginx/sites-available/lxc_landing.dev
 		```
 		
-		![12](assets/12.png)
+		![13](assets/13.png)
 		
 		Check configurasi nginx dan start nginx
 		
@@ -165,18 +165,17 @@ Nama Anggota :
 		curl -i http://lxc_php7_3.dev
 		```
 		
-		![13](assets/13.png)
+		![14](assets/14.png)
 		
 		exit dari ubuntu_landing_3
 		
 		```sh
 		exit
 		```
-		![14](assets/14.png)
+		![15](assets/15.png)
 		
 2. Setup Nginx
 
-	![15](assets/15.png)
 	![16](assets/16.png)
 	![17](assets/17.png)
 	![18](assets/18.png)
@@ -205,6 +204,7 @@ Nama Anggota :
 	![](assets/41.png)
 	![](assets/42.png)
 	![](assets/43.png)
+	![44](assets/44.png)
 
 	* Konfigurasi load balancer menggunakan round robin untuk halaman landing vm.local pada nginx
 	
@@ -212,13 +212,14 @@ Nama Anggota :
 		sudo nano /etc/nginx/sites-available/vm.local
 		```
 		
-		![44](assets/44.png)
+		
 		![45](assets/45.png)
 		![46](assets/46.png)
+		![47](assets/47.png)
 		
 	* Jalankan kembali jmeter
 	
-	![](assets/47.png)
+	
 	![](assets/48.png)
 	![](assets/49.png)
 	![](assets/50.png)
