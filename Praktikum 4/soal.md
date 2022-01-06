@@ -131,12 +131,12 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 
 ### Load Balancing
 1. Siapkan LXC untuk landing
-	* Clone LXC ubuntu_landing menjadi ubuntu_landing_2 dan ubuntu_landing_3
+	* Clone LXC ubuntu_php7.4 menjadi ubuntu_php7.4_2 dan ubuntu_php7.4_3
 	
 		```sh
-		sudo lxc-stop -n ubuntu_landing
-		sudo lxc-copy -n ubuntu_landing -N ubuntu_landing_2 -sKD
-		sudo lxc-copy -n ubuntu_landing -N ubuntu_landing_3 -sKD
+		sudo lxc-stop -n ubuntu_php7.4
+		sudo lxc-copy -n ubuntu_php7.4 -N ubuntu_php7.4_2 -sKD
+		sudo lxc-copy -n ubuntu_php7.4 -N ubuntu_php7.4_3 -sKD
 		```
 		
 		![lxc-clone result](assets/lxc-clone.png)
@@ -149,21 +149,25 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		sudo lxc-start -n ubuntu_php7.4_3
 		```
 		
+		![1](assets/1.png)
+		
 	* Masuk ke lxc ubuntu_landing_2
 	
 		```sh
-		sudo lxc-attach -n ubuntu_landing_2
+		sudo lxc-attach -n ubuntu_php7.4_2
 		```
 		
-	* Configurasi IP dan nginx ubuntu_landing_2
+	* Configurasi IP dan nginx ubuntu_php7.4_2
 	
 		```sh
 		nano /etc/netplan/10-lxc.yaml
 		```
 		
-		ganti ip menjadi 10.0.3.113
+		![1](assets/1.png)
 		
-		![](assets/landing2-1.png)
+		ganti ip menjadi 10.0.3.111
+		
+		![2](assets/2.png)
 		
 		terapkan konfigurasi netplan baru
 		
@@ -177,7 +181,7 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		ip addr show eth0
 		```
 		
-		![](assets/landing2-2.png)
+		![3](assets/3.png)
 		
 		Daftarkan domain lxc_landing_2.dev di hosts file
 		
@@ -185,15 +189,15 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		nano /etc/hosts
 		```
 		
-		![](assets/landing2-3.png)
+		![4](assets/4.png)
 		
-		Konfigurasi nginx untuk lxc_landing_2.dev
+		Konfigurasi nginx untuk lxc_php7.4_2.dev
 		
 		```sh
-		nano /etc/nginx/sites-available/lxc_landing.dev
+		nano /etc/nginx/sites-available/lxc_php7.dev
 		```
 		
-		![](assets/landing2-4.png)
+		![5](assets/5.png)
 		
 		Check configurasi nginx dan start nginx
 		
@@ -202,13 +206,13 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		service nginx restart
 		```
 		
-		Coba akses lxc_landing
+		Coba akses lxc_php7
 		
 		```sh
-		curl -i http://lxc_landing_2.dev
+		curl -i http://lxc_php7_2.dev
 		```
 		
-		![](assets/landing2-5.png)
+		![6](assets/6.png)
 		
 		keluar dari ubuntu_landing_2
 		
@@ -216,21 +220,25 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		exit
 		```
 		
-	* Masuk ke lxc ubuntu_landing_3
+		![7](assets/7.png)
+		
+	* Masuk ke lxc ubuntu_php7.4_3
 	
 		```sh
-		sudo lxc-attach -n ubuntu_landing_3
+		sudo lxc-attach -n ubuntu_php7.4_3
 		```
 		
-	* Configurasi IP dan nginx ubuntu_landing_2
+	* Configurasi IP dan nginx ubuntu_php7.4_3
 	
 		```sh
 		nano /etc/netplan/10-lxc.yaml
 		```
 		
-		ganti ip menjadi 10.0.3.123
+		![8](assets/8.png)
 		
-		![](assets/landing3-1.png)
+		ganti ip menjadi 10.0.3.121
+		
+		![9](assets/9.png)
 		
 		terapkan konfigurasi netplan baru
 		
@@ -244,23 +252,23 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		ip addr show eth0
 		```
 		
-		![](assets/landing3-2.png)
+		![10](assets/10.png)
 		
-		Daftarkan domain lxc_landing_3.dev di hosts file
+		Daftarkan domain lxc_php7_3.dev di hosts file
 		
 		```sh
 		nano /etc/hosts
 		```
 		
-		![](assets/landing3-3.png)
+		![11](assets/11.png)
 		
-		Konfigurasi nginx untuk lxc_landing_3.dev
+		Konfigurasi nginx untuk lxc_php7_3.dev
 		
 		```sh
 		nano /etc/nginx/sites-available/lxc_landing.dev
 		```
 		
-		![](assets/landing3-4.png)
+		![12](assets/12.png)
 		
 		Check configurasi nginx dan start nginx
 		
@@ -269,38 +277,52 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		service nginx restart
 		```
 		
-		Coba akses lxc_landing
+		Coba akses lxc_php7
 		
 		```sh
-		curl -i http://lxc_landing_3.dev
+		curl -i http://lxc_php7_3.dev
 		```
 		
-		![](assets/landing3-5.png)
+		![13](assets/13.png)
 		
 		exit dari ubuntu_landing_3
 		
 		```sh
 		exit
 		```
-		 
+		![14](assets/14.png)
+		
 2. Setup Nginx
 
-	* Daftarkan lxc_landing_2.dev dan lxc_landing_3.dev ke hostfile vm.local
-	
-		```sh
-		sudo nano /etc/hosts
-		```
-		
-		![](assets/vm-1.png)
-		
-	* Check lxc_landing_2.dev dan lxc_landing_3.dev melalui curl
-	
-		```sh
-		curl -I http://lxc_landing_2.dev
-		curl -I http://lxc_landing_3.dev
-		```
-		
-		![](assets/vm-2.png)
+	![15](assets/15.png)
+	![16](assets/16.png)
+	![17](assets/17.png)
+	![18](assets/18.png)
+	![19](assets/19.png)
+	![20](assets/20.png)
+	![21](assets/21.png)
+	![22](assets/22.png)
+	![23](assets/23.png)
+	![24](assets/24.png)
+	![25](assets/25.png)
+	![26](assets/26.png)
+	![27](assets/27.png)
+	![28](assets/28.png)
+	![29](assets/29.png)
+	![](assets/30.png)
+	![](assets/31.png)
+	![](assets/32.png)
+	![](assets/33.png)
+	![](assets/34.png)
+	![](assets/35.png)
+	![](assets/36.png)
+	![](assets/37.png)
+	![](assets/38.png)
+	![](assets/39.png)
+	![](assets/40.png)
+	![](assets/41.png)
+	![](assets/42.png)
+	![](assets/43.png)
 
 	* Konfigurasi load balancer menggunakan round robin untuk halaman landing vm.local pada nginx
 	
@@ -308,149 +330,31 @@ Aplikasi Apache JMeter™ adalah perangkat lunak sumber terbuka, aplikasi Java m
 		sudo nano /etc/nginx/sites-available/vm.local
 		```
 		
-		![](assets/vm-3.png)
+		![44](assets/44.png)
+		![45](assets/45.png)
+		![46](assets/46.png)
 		
-	* Check Konfigurasi nginx
+	* Jalankan kembali jmeter
 	
-		```sh
-		sudo nginx -t
-		```
-		
-		![](assets/vm-4.png)
-		
-	* Restart Nginx
+	![](assets/47.png)
+	![](assets/48.png)
+	![](assets/49.png)
+	![](assets/50.png)
+	![](assets/51.png)
+	![](assets/52.png)
+	![](assets/53.png)
+	![](assets/54.png)
+	![](assets/55.png)
+	![](assets/56.png)
+	![](assets/57.png)
+	![](assets/58.png)
+	![](assets/59.png)
+	![](assets/60.png)
+	![](assets/61.png)
+	![](assets/62.png)
+	![](assets/63.png)
 	
-		```sh
-		sudo service nginx restart
-		```
 	
-3. Coba Jalankan
-	
-	* Coba akses vm.local
-	
-		```sh
-		curl -I http://vm.local
-		```
-		
-		![](assets/vm-5.png)
-		
-
-### Load Testing
-1. Daftarkan vm.local ke /etc/hosts sesuai IP masing-masing, menggunakan DNS hasil modul 3 lebih disarakan
-	
-	![](assets/win-4.png)
-	
-2. Install Apache JMeter
-	
-	* Pastikan java sudah terinstall, apabila belum silahkan install java terlebih dahulu
-
-		```sh
-		java -version
-		```
-		
-		![](assets/win-1.png)
-		
-	* [Download](https://jmeter.apache.org/download_jmeter.cgi "Download ") Apache Jmeter
-	
-		![](assets/win-2.png)
-		
-	* Extract Files dan jalankan apache Jmeter (apache-jmeter-5.4.2/bin/jmeter.bat)
-	
-		![](assets/win-3.png)
-		
-2. Konfigurasi
-
-	* Rename test plan menjadi Landing Load Test
-	
-		![](assets/jm-1.png)
-		
-	* Menambahkan User Defined VariablesPermalink
-	
-		Di node ini kita akan menambahkan informasi global yang sering digunakan pada saat testing seperti informasi host dan port. Untuk menambahkan node `User Defined Variables` klik kanan node Test Plan (Landing Load Test) -> Add -> Config Element -> User Defined Variables.
-		
-		![](assets/jm-2.png)
-		
-		Tambahkan host dan port seperti gambar dibawah ini
-		
-		![](assets/jm-3.png)
-		
-	* Menambahkan Thread Group
-	
-		Setelah menambahkan node User Defined Variables, kita lanjutkan dengan  menambahkan trafik/user visitor ke dalam komponen yang mau di test.
-		
-		![](assets/jm-4.png)
-		
-		![](assets/jm-5.png)
-		
-		Keterangan:
-		
-			- Number of threads (users) : 
-				isi berapa user/visitor yang akan mengakses web.
-			– Ramp-Up period ( in seconds ) : 
-				isi berapa waktu delay antara user satu dengan yang lainnya dalam mengakses web.
-			– Loop Count : 
-				waktu eksekusi, bertahap atau seterusnya.
-		
-		
-	* Menambahkan HTTP Request Defaults
-	
-		Langkah berikutnya adalah menambahkan node HTTP Request Defaults, caranya juga sama seperti sebelumnya hanya saja yang dipilih node HTTP Request Defaults. Di node ini kita cukup mengeset informasi nama server/ip address, port dan protocol.
-		
-		![](assets/jm-6.png)
-		
-		![](assets/jm-7.png)
-	
-	* Menambahkan Http Request untuk users access (Threads Group)
-	
-		Jika tidak hanya halaman utama yang di test, kita bisa menambahkan path/foldernya, caranya :
-		
-		![](assets/jm-8.png)
-		
-		Tambahkan 3 kali untuk landing, blog dan app
-		
-		![](assets/jm-9.png)
-		
-		![](assets/jm-10.png)
-		
-		![](assets/jm-11.png)
-		
-3. Menambahkan Listener
-Menampilkan proses dan hasil test secara grafis atau bentuk tabel. Caranya :
-
-	* Klik Kanan Landing Load Test
-		* Add > Listener > Graph Result
-		
-			![](assets/jm-12.png)
-		
-		* Add > Listener > View Results in Table
-		
-			![](assets/jm-13.png)
-			
-		* Add > Listener > Summary Report
-		
-			![](assets/jm-14.png)
-
-4. Run Testing
-Menjalankan Test secara otomatis. Caranya :
-
-	* Simpan terlebih dahulu Test Plan yang telah kita buat di File > Save ( Ctrl + S ).
-	* Klik Run atau Ctrl + R, jMeter akan mulai mensimulasi sejumlah user dalam mengakses web server yang telah ditentukan.
-
-5. Hasil
-
-	- Graph Result
-	
-		![](assets/jm-17.png)
-		
-		
-	- View Results in Table
-	
-		![](assets/jm-16.png)
-		
-	- Summary Report
-	
-		![](assets/jm-15.png)
-
 ## Soal Praktikum
 1. Terapkan loadbalancer untuk /blog dan /app dengan ketentuan
 	1. /blog menggunakan least_conn
