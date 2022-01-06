@@ -289,24 +289,36 @@ Nama Anggota :
 		```
 		![28](assets/28.png)
 
-	* etc host
+3. Daftarkan semua kontainer ke dalam `etc host` pada VM
 
 	![29](assets/29.png)
+	
+	* Jalankan jmeter. Ganti angka pada box (number of threads) dari menu `user access` menjadi `50, 100, 150` . 
+
+	* number of threads `50`
+
 	![](assets/30.png)
 	![](assets/31.png)
 	![](assets/32.png)
 	![](assets/33.png)
 	![](assets/34.png)
+	
+	* number of threads `100`
+
 	![](assets/35.png)
 	![](assets/36.png)
 	![](assets/37.png)
 	![](assets/38.png)
 	![](assets/39.png)
+	
+	* number of threads `150`
+
 	![](assets/40.png)
 	![](assets/41.png)
 	![](assets/42.png)
 	![](assets/43.png)
 	![44](assets/44.png)
+	![45](assets/45.png)
 
 	* Konfigurasi load balancer menggunakan round robin untuk halaman landing vm.local pada nginx
 	
@@ -315,7 +327,7 @@ Nama Anggota :
 		```
 		
 		
-		![45](assets/45.png)
+		
 		![46](assets/46.png)
 		![47](assets/47.png)
 		
