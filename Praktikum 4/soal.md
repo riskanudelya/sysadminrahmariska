@@ -40,7 +40,7 @@ Nama Anggota :
 		
 		![1](assets/1.png)
 		
-	* Masuk ke lxc ubuntu_landing_2
+	* Masuk ke lxc ubuntu_php7.4_2
 	
 		```sh
 		sudo lxc-attach -n ubuntu_php7.4_2
@@ -103,7 +103,7 @@ Nama Anggota :
 		
 		![7](assets/7.png)
 		
-		keluar dari ubuntu_landing_2
+		keluar dari ubuntu_php7.4_2
 		
 		```sh
 		exit
